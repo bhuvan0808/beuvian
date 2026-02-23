@@ -1,0 +1,127 @@
+========================================================================
+  BUVN-1.1 COMPREHENSIVE MODEL BENCHMARK
+========================================================================
+
+[1/6] Loading model...
+  Architecture : 4 layers, 128 dim, 4 heads
+  Parameters   : 2,835,072 (2.84M)
+  Vocab Size   : 8000
+  Context Len  : 128
+  Weights Size : 10.8 MB (in memory)
+  Checkpoint   : 32.5 MB (on disk)
+
+[2/6] Evaluating Perplexity (200 batches)...
+  Avg Loss   : 6.2119
+  Perplexity : 498.65
+  Bits/Char  : 8.9619
+  Random PPL : 8000 (vocab size = random guessing)
+  Improvement: 93.8% better than random
+
+[3/6] Evaluating Top-K Accuracy (200 batches)...
+  Top-1 Accuracy : 13.28%
+  Top-5 Accuracy : 25.56%
+
+[4/6] Measuring Throughput (50 forward passes)...
+  Throughput : 36,782 tokens/sec (CPU)
+
+[5/6] Measuring Generation Latency (50 tokens x 5 runs)...
+  Avg Latency : 8.6 ms/token
+  Est. Speed  : 117 tokens/sec (autoregressive)
+
+[6/6] Benchmark Comparison
+
+========================================================================
+  LEADERBOARD - WikiText-103 Perplexity (lower = better)
+========================================================================
+
+  Rank  Model                   Params       PPL      Tokens  Org
+  --------------------------------------------------------------------
+  1     LLaMA-2 7B                  7B      5.47          2T  Meta
+  2     LLaMA 7B                    7B      7.73          1T  Meta
+  3     Pythia-1B                   1B     16.71        300B  EleutherAI
+  4     GPT-2 Large               774M     19.93        ~40B  OpenAI
+  5     GPT-2 Medium              355M     22.76        ~40B  OpenAI
+  6     OPT-125M                  125M     27.65        300B  Meta
+  7     RWKV-169M                 169M     29.01        300B  RWKV
+  8     Pythia-160M               160M     29.33        300B  EleutherAI
+  9     GPT-2 Small               124M     29.41        ~40B  OpenAI
+  10    GPT-Neo 125M              125M     32.43        300B  EleutherAI
+  11    BUVN-1.1 (ours)           2.8M    498.65       74.5M  Beuvian
+
+  Your rank: #11 out of 11 models
+
+========================================================================
+  GAP ANALYSIS
+========================================================================
+
+  Your PPL: 498.65  |  Your Params: 2.8M  |  Your Data: 74.5M tokens
+
+  vs GPT-2 Small (124M):
+     Target PPL: 29.41  |  Gap: 469.2 points (94% reduction)
+     Recipe: 44x more params, 537x more data, ~$50 on 1xA100
+
+  vs OPT-125M:
+     Target PPL: 27.65  |  Gap: 471.0 points (94% reduction)
+     Recipe: 44x more params, 4000x more data, ~$150 on A100s
+
+  vs Pythia-160M:
+     Target PPL: 29.33  |  Gap: 469.3 points (94% reduction)
+     Recipe: 56x more params, 4000x more data, ~$150 on A100s
+
+  vs GPT-2 Medium (355M):
+     Target PPL: 22.76  |  Gap: 475.9 points (95% reduction)
+     Recipe: 125x more params, 537x more data, ~$200 on A100s
+
+  vs LLaMA-2 7B:
+     Target PPL: 5.47  |  Gap: 493.2 points (99% reduction)
+     Recipe: 2500x more params, 26000x more data, ~$2M compute
+
+========================================================================
+  IMPROVEMENT ROADMAP
+========================================================================
+
+  CURRENT STATE:
+    PPL=499 | 2.8M params | 74.5M tokens | CPU | 500 iters
+
+  PHASE 1 - More Data + Longer Training  (est. PPL ~100-200)
+    - Switch to C4 dataset (5+ GB corpus)
+    - Train tokenizer with 50K vocab
+    - Same tiny model, but 10,000+ iterations
+    - Still runs on CPU (slow but works)
+    - Cost: $0 (just time)
+
+  PHASE 2 - Scale Up Model  (est. PPL ~40-70)
+    - Use full 120M param config (12 layers, 768 dim)
+    - Train on 1-5B tokens from C4
+    - Requires 1x GPU (A100/H100)
+    - Cost: ~$50-100 on Azure
+
+  PHASE 3 - Production Training  (est. PPL ~25-35)
+    - 120M params, 20-40B tokens
+    - Multi-GPU DDP, Flash Attention 2
+    - Cosine schedule, 100K+ steps
+    - Competitive with GPT-2 Small / OPT-125M
+    - Cost: ~$150 on Azure NC A100 v4
+
+  PHASE 4 - Competitive  (est. PPL ~15-20)
+    - Scale to 350M-1B params
+    - 100B+ tokens, multi-node training
+    - Add SFT + RLHF for instruction following
+    - Competitive with GPT-2 Large / Pythia-1B
+    - Cost: ~$500-2000
+
+========================================================================
+
++------------------------------------------------------+
+|            BUVN-1.1 BENCHMARK SUMMARY                |
++------------------------------------------------------+
+|  Perplexity (PPL)      :      498.65                 |
+|  Bits Per Character    :      8.9619                 |
+|  Top-1 Accuracy        :      13.28%                 |
+|  Top-5 Accuracy        :      25.56%                 |
+|  Throughput (fwd)      :    36,782 tok/s (CPU)      |
+|  Generation Latency    :       8.6 ms/tok           |
+|  Parameters            :      2.84M                |
+|  vs Random (PPL=8,000)  :      93.8% better       |
+|  Leaderboard Rank      :  #    11 / 11              |
++------------------------------------------------------+
