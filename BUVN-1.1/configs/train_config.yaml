@@ -1,0 +1,28 @@
+# BUVN-1.1 Model Training Configuration (283MB WikiText-103 corpus, CPU-optimized)
+model:
+  vocab_size: 8000
+  d_model: 128
+  n_layers: 4
+  n_heads: 4
+  max_seq_len: 128
+  dropout: 0.1
+  bias: false
+
+training:
+  batch_size: 8
+  gradient_accumulation_steps: 1
+  max_iters: 500
+  lr: 0.001
+  min_lr: 0.0001
+  warmup_iters: 50
+  weight_decay: 0.1
+  beta1: 0.9
+  beta2: 0.95
+  grad_clip: 1.0
+  eval_interval: 100
+  eval_iters: 10
+  log_interval: 10
+  checkpoint_dir: "BUVN-1.1/checkpoints"
+  
+data:
+  data_dir: "BUVN-1.1/data/processed"

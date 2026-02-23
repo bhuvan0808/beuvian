@@ -1,0 +1,72 @@
+# ============================================
+# BUVN-1.1 .gitignore
+# ============================================
+
+# -------------------- Python --------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# -------------------- Virtual Environment --------------------
+venv/
+.venv/
+env/
+.env
+
+# -------------------- Generated Data --------------------
+# Corpus files (large, regenerated via scripts/prepare_data.py)
+data/processed/corpus.txt
+data/processed/big_dummy.txt
+data/raw/
+
+# Binary token files (regenerated via scripts/tokenize_corpus.py)
+data/processed/train.bin
+data/processed/val.bin
+
+# Tokenizer metadata from dummy runs
+data/processed/meta.pkl
+
+# -------------------- Trained Models --------------------
+# Checkpoints (large .pt files, regenerated via training/train.py)
+checkpoints/
+*.pt
+*.pth
+
+# -------------------- Tokenizer (Generated) --------------------
+# Trained tokenizer files (regenerated via scripts/train_hf_tokenizer.py)
+tokenizer/tokenizer.json
+tokenizer/tokenizer.model
+tokenizer/tokenizer.vocab
+
+# -------------------- Inference Outputs --------------------
+inference_output.txt
+
+# -------------------- IDE & Editor --------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# -------------------- Jupyter --------------------
+.ipynb_checkpoints/
+*.ipynb
+
+# -------------------- Logs --------------------
+*.log
+wandb/
+runs/
+lightning_logs/
+
+# -------------------- OS --------------------
+.DS_Store
+Thumbs.db
+desktop.ini

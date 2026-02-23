@@ -1,0 +1,9 @@
+torch>=2.0.0
+transformers
+sentencepiece
+datasets
+numpy
+fastapi
+uvicorn
+pydantic
+pyyaml
