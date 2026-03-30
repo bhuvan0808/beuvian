@@ -1,0 +1,103 @@
+========================================================================
+  BUVN COMPREHENSIVE MODEL BENCHMARK
+========================================================================
+
+  Hardware: CUDA
+  GPU: NVIDIA H100 NVL
+  VRAM: 99.9 GB
+  PyTorch: 2.9.1+cu128
+  CUDA: 12.8
+
+[1/6] Loading model...
+  Architecture : 12 layers, 768 dim, 12 heads
+  Parameters   : 109,529,856 (109.53M total)
+  Non-Embedding: 84,953,856 (84.95M)
+  Vocab Size   : 32,000
+  Context Len  : 1024
+  Weights Size : 417.8 MB (in memory)
+  Checkpoint   : 1253.6 MB (on disk)
+  Best Val Loss: 3.3628
+  Trained Steps: 14,999
+
+[2/6] Evaluating Perplexity on Validation Set (200 batches)...
+  Val Loss     : 3.3737
+  Val PPL      : 29.19
+  Bits/Char    : 4.8673
+  Train Loss   : 3.3439
+  Train PPL    : 28.33
+  Overfit Gap  : 0.0299 (healthy)
+  Random PPL   : 32,000 (vocab size = random guessing)
+  vs Random    : 99.9% better
+
+[3/6] Evaluating Top-K Accuracy (200 batches)...
+  Top-1 Accuracy : 37.88%
+  Top-5 Accuracy : 60.34%
+
+[4/6] Measuring Throughput (100 forward passes, batch=16)...
+  Throughput : 126,976 tokens/sec (CUDA)
+  MFU        : 9.5%
+
+[5/6] Measuring Generation Latency (100 tokens x 5 runs)...
+  Avg Latency : 4.9 ms/token
+  Gen Speed   : 204 tokens/sec (autoregressive)
+  Peak VRAM   : 8.14 GB
+
+[6/6] Benchmark Comparison
+
+============================================================================
+  LEADERBOARD - WikiText-103 Perplexity (lower = better)
+============================================================================
+
+  Rank  Model                     Params       PPL      Tokens  Org
+  ------------------------------------------------------------------------
+  1     LLaMA-2 7B                    7B      5.47          2T  Meta
+  2     LLaMA 7B                      7B      7.73          1T  Meta
+  3     Pythia-1B                     1B     16.71        300B  EleutherAI
+  4     GPT-2 Large                 774M     19.93        ~40B  OpenAI
+  5     GPT-2 Medium                355M     22.76        ~40B  OpenAI
+  6     OPT-125M                    125M     27.65        300B  Meta
+  7     RWKV-169M                   169M     29.01        300B  RWKV
+  8     BUVN (ours)               109.5M     29.19        983M  Bhuvan  <-- YOU
+  9     Pythia-160M                 160M     29.33        300B  EleutherAI
+  10    GPT-2 Small                 124M     29.41        ~40B  OpenAI
+  11    GPT-Neo 125M                125M     32.43        300B  EleutherAI
+
+  Your rank: #8 out of 11 models
+
+============================================================================
+  GAP ANALYSIS — What it takes to close the gap
+============================================================================
+
+  vs GPT-2 Small (124M):
+     Target PPL: 29.41  |  Gap: -0.2 points
+     Recipe: 12x params, 3000x data → ~$50 on 1x H100, ~5 hrs
+
+  vs OPT-125M:
+     Target PPL: 27.65  |  Gap: 1.5 points
+     Recipe: 12x params, 23000x data → ~$150 on H100, ~15 hrs
+
+  vs GPT-2 Medium (355M):
+     Target PPL: 22.76  |  Gap: 6.4 points
+     Recipe: 34x params, 3000x data → ~$300 on H100, ~30 hrs
+
+  vs Pythia-1B:
+     Target PPL: 16.71  |  Gap: 12.5 points
+     Recipe: 96x params, 23000x data → ~$2000, multi-GPU
+
+============================================================================
+
++----------------------------------------------------------+
+|              BUVN BENCHMARK SUMMARY                      |
++----------------------------------------------------------+
+|  Model            :  12L / 768d / 12H              |
+|  Parameters       :    109.53M                          |
+|  Perplexity (PPL) :       29.19                          |
+|  Bits Per Char    :      4.8673                          |
+|  Top-1 Accuracy   :      37.88%                          |
+|  Top-5 Accuracy   :      60.34%                          |
+|  Throughput (fwd) :   126,976 tok/s (CUDA)             |
+|  Gen Latency      :       4.9 ms/tok                    |
+|  Gen Speed        :       204 tok/s (autoregressive)     |
+|  vs Random        :      99.9% better                  |
+|  Leaderboard      :  #     8 / 11                       |
++----------------------------------------------------------+

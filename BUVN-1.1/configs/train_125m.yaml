@@ -1,0 +1,31 @@
+# BUVN-2.0: 125M param production config (GPT-2 Small equivalent)
+# Optimized for H100 NVL 96GB — torch.compile + large batch
+# Target: ~3-4 hrs, C4 streamed, 2B tokens
+model:
+  vocab_size: 32000
+  d_model: 768
+  n_layers: 12
+  n_heads: 12
+  max_seq_len: 1024
+  dropout: 0.0           # No dropout for pre-training at scale
+  bias: false
+  gradient_checkpointing: false
+
+training:
+  batch_size: 64                    # H100 fits bs=96 but leave headroom for compile
+  gradient_accumulation_steps: 2    # effective batch = 128 seq = 131K tokens
+  max_iters: 15000                  # 15K steps × 131K tokens = ~2B tokens
+  lr: 0.0006
+  min_lr: 0.00006
+  warmup_iters: 500
+  weight_decay: 0.1
+  beta1: 0.9
+  beta2: 0.95
+  grad_clip: 1.0
+  eval_interval: 500
+  eval_iters: 50
+  log_interval: 10
+  checkpoint_dir: "checkpoints"
+
+data:
+  data_dir: "data/processed"
