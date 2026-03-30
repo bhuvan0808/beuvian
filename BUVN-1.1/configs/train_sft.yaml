@@ -1,0 +1,31 @@
+# BUVN-2.0 SFT (Supervised Fine-Tuning) — Instruction Tuning
+# Fine-tune pre-trained 109.5M model on Alpaca + OpenAssistant
+# Target: ~30-45 min on H100
+model:
+  vocab_size: 32000
+  d_model: 768
+  n_layers: 12
+  n_heads: 12
+  max_seq_len: 1024
+  dropout: 0.05          # Slight dropout for regularization during fine-tuning
+  bias: false
+  gradient_checkpointing: false
+
+training:
+  batch_size: 32                    # Smaller batch for SFT stability
+  gradient_accumulation_steps: 4    # effective batch = 128
+  max_iters: 3000                   # ~2-3 epochs over the data
+  lr: 0.00003                       # 20x lower than pre-training
+  min_lr: 0.000003
+  warmup_iters: 100
+  weight_decay: 0.01                # Less decay for fine-tuning
+  beta1: 0.9
+  beta2: 0.95
+  grad_clip: 1.0
+  eval_interval: 200
+  eval_iters: 20
+  log_interval: 10
+  checkpoint_dir: "checkpoints_sft"
+
+data:
+  data_dir: "data/sft"
