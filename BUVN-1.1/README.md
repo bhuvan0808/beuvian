@@ -758,6 +758,74 @@ curl --location 'http://127.0.0.1:8000/generate' \
 
 <br/>
 
+## 🏆 BUVN-2.0 Results — Beat GPT-2 Small!
+
+<div align="center">
+
+### Trained on NVIDIA H100 NVL | 109.5M Parameters | PPL 29.19
+
+</div>
+
+| Metric | BUVN-1.1 (10M) | BUVN-2.0 (125M) | Improvement |
+|--------|:-:|:-:|:-:|
+| **Val Perplexity** | 35.87 | **29.19** | 18.6% better |
+| **Parameters** | 13.69M | **109.53M** | 8x |
+| **Vocab** | 8K | **32K** | 4x |
+| **Context** | 512 | **1024** | 2x |
+| **Training Data** | 13M tokens | **2B tokens** | 154x |
+| **Top-1 Accuracy** | 36.30% | **37.88%** | +1.6% |
+| **Top-5 Accuracy** | 56.84% | **60.34%** | +3.5% |
+| **Overfit Gap** | 0.62 (overfitting) | **0.03 (healthy)** | Fixed |
+| **Training Time** | 5 min | **~2 hours** | — |
+| **Leaderboard** | #11/11 | **#8/11** | Beat GPT-2 Small! |
+
+<details>
+<summary>📊 <b>Click to expand: Full Leaderboard</b></summary>
+
+| Rank | Model | Params | PPL | Tokens | Org |
+|:----:|-------|:------:|:---:|:------:|-----|
+| 1 | LLaMA-2 7B | 7B | 5.47 | 2T | Meta |
+| 2 | LLaMA 7B | 7B | 7.73 | 1T | Meta |
+| 3 | Pythia-1B | 1B | 16.71 | 300B | EleutherAI |
+| 4 | GPT-2 Large | 774M | 19.93 | ~40B | OpenAI |
+| 5 | GPT-2 Medium | 355M | 22.76 | ~40B | OpenAI |
+| 6 | OPT-125M | 125M | 27.65 | 300B | Meta |
+| 7 | RWKV-169M | 169M | 29.01 | 300B | RWKV |
+| **8** | **BUVN-2.0 (ours)** | **109.5M** | **29.19** | **2B** | **Bhuvan** |
+| 9 | Pythia-160M | 160M | 29.33 | 300B | EleutherAI |
+| 10 | GPT-2 Small | 124M | 29.41 | ~40B | OpenAI |
+| 11 | GPT-Neo 125M | 125M | 32.43 | 300B | EleutherAI |
+
+</details>
+
+> 📘 **Full benchmark details:** See [docs/benchmarks.md](docs/benchmarks.md)
+
+<br/>
+
+<!-- Animated Divider -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+
+<br/>
+
+## 📚 Documentation
+
+| Guide | Description |
+|-------|-------------|
+| [Setup & Installation](docs/setup.md) | Prerequisites, installation, troubleshooting |
+| [Usage Guide](docs/usage.md) | CLI inference, API server, sampling parameters |
+| [Training Guide](docs/training.md) | Full 6-step pipeline, config explained, monitoring |
+| [Scaling to Production](docs/scaling.md) | Parallel data streaming, batch optimization, cost estimates |
+| [Fine-Tuning Guide](docs/fine-tuning.md) | SFT, RLHF, DPO, LoRA, instruction tuning |
+| [Model Architecture](docs/architecture.md) | Transformer internals, RoPE, RMSNorm, SwiGLU |
+| [Benchmark Results](docs/benchmarks.md) | Full metrics, leaderboard, gap analysis |
+
+<br/>
+
+<!-- Animated Divider -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+
+<br/>
+
 ## 💾 Using the Checkpoint (.pt) File
 
 <details>
@@ -847,13 +915,14 @@ Plug into Stripe or any billing system for per-token pricing.
 
 ### 🧠 BUVN — Foundation Model Evolution
 
-- [ ] 🎯 Scale to **120M parameters** on Azure A100 GPUs
-- [ ] 📚 Switch to **C4 dataset** (5B+ tokens)
-- [ ] 💬 **Supervised Fine-Tuning** on prompt/response pairs
+- [x] 🎯 **DONE** — Scaled to **109.5M parameters** on H100 NVL GPU
+- [x] 📚 **DONE** — Switched to **C4 dataset** (2B tokens streamed via 8 parallel workers)
+- [x] ⚡ **DONE** — **torch.compile** for 1.5x training speedup
+- [x] 📏 **DONE** — **1024 token context**, 32K vocabulary
+- [x] 🏆 **DONE** — **PPL 29.19** — Beat GPT-2 Small (29.41)! Rank #8/11 on leaderboard
+- [ ] 💬 **Supervised Fine-Tuning** on prompt/response pairs (OpenAssistant + Alpaca)
 - [ ] 🧭 **RLHF / DPO** alignment
-- [ ] ⚡ **Flash Attention 2** kernels
 - [ ] 🖥️ **Multi-GPU DDP** distributed training
-- [ ] 📏 **Longer context** (2048+ tokens)
 - [ ] 📦 **INT8/INT4 Quantization** for faster inference
 
 ### 💻 SRVN — Coding Agent Model (Fine-tuned from BUVN)

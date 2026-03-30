@@ -30,7 +30,13 @@ def load_model(checkpoint_path, device='cpu'):
     ckpt = torch.load(checkpoint_path, map_location=device, weights_only=False)
     config = BUVNConfig.from_dict(ckpt['model_args'])
     model = BUVNModel(config)
-    model.load_state_dict(ckpt['model'])
+    # Handle torch.compile _orig_mod. prefix
+    state_dict = ckpt['model']
+    unwanted_prefix = '_orig_mod.'
+    for k in list(state_dict.keys()):
+        if k.startswith(unwanted_prefix):
+            state_dict[k[len(unwanted_prefix):]] = state_dict.pop(k)
+    model.load_state_dict(state_dict)
     model.to(device)
     model.eval()
     return model, config, ckpt
