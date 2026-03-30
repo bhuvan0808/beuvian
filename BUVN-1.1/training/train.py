@@ -63,6 +63,8 @@ def main():
     parser.add_argument("--config", type=str, default="configs/train_config.yaml")
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--compile", action="store_true", help="Use torch.compile (PyTorch 2.0+)")
+    parser.add_argument("--from_checkpoint", type=str, default=None,
+                        help="Load pre-trained weights from checkpoint (for fine-tuning)")
     args = parser.parse_args()
 
     # Reproducibility
@@ -96,6 +98,20 @@ def main():
     print("Initializing model...")
     m_config = BUVNConfig.from_dict(m_cfg_dict)
     model = BUVNModel(m_config)
+
+    # Load pre-trained weights for fine-tuning
+    if args.from_checkpoint:
+        print(f"Loading pre-trained weights from {args.from_checkpoint}...")
+        ckpt = torch.load(args.from_checkpoint, map_location=device, weights_only=False)
+        state_dict = ckpt['model']
+        # Handle torch.compile _orig_mod. prefix
+        for k in list(state_dict.keys()):
+            if k.startswith('_orig_mod.'):
+                state_dict[k[len('_orig_mod.'):]] = state_dict.pop(k)
+        model.load_state_dict(state_dict, strict=False)
+        print(f"  Loaded weights from step {ckpt.get('iter_num', '?')}, "
+              f"val loss {ckpt.get('best_val_loss', '?'):.4f}")
+
     model.to(device)
 
     n_params = model.get_num_params()
