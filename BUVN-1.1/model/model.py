@@ -1,28 +1,31 @@
 import math
-import struct
-from typing import Tuple
+from typing import Tuple, Optional
 
 import torch
 import torch.nn as nn
 from torch.nn import functional as F
+from torch.utils.checkpoint import checkpoint as grad_checkpoint
 
 from model.config import BUVNConfig
 
+
 def precompute_freqs_cis(dim: int, end: int, theta: float = 10000.0) -> torch.Tensor:
     """Precomputes the frequency tensor for complex exponentials (RoPE)."""
-    freqs = 1.0 / (theta ** (torch.arange(0, dim, 2)[: (dim // 2)].float() / dim))
+    freqs = 1.0 / (theta ** (torch.arange(0, dim, 2, dtype=torch.float32) / dim))
     t = torch.arange(end, device=freqs.device)
     freqs = torch.outer(t, freqs).float()
     freqs_cis = torch.polar(torch.ones_like(freqs), freqs)  # complex64
     return freqs_cis
 
+
 def reshape_for_broadcast(freqs_cis: torch.Tensor, x: torch.Tensor) -> torch.Tensor:
     """Reshapes the precomputed frequencies to match the input tensor shape."""
     ndim = x.ndim
-    assert 0 <= 1 < ndim
+    assert ndim >= 2, f"Expected tensor with at least 2 dims, got {ndim}"
     assert freqs_cis.shape == (x.shape[1], x.shape[-1])
     shape = [d if i == 1 or i == ndim - 1 else 1 for i, d in enumerate(x.shape)]
     return freqs_cis.view(*shape)
+
 
 def apply_rotary_emb(
     xq: torch.Tensor,
@@ -39,7 +42,7 @@ def apply_rotary_emb(
 
 
 class RMSNorm(torch.nn.Module):
-    def __init__(self, dim: int, eps: float = 1e-6):
+    def __init__(self, dim: int, eps: float = 1e-5):
         """Root Mean Square Layer Normalization."""
         super().__init__()
         self.eps = eps
@@ -59,8 +62,8 @@ class FeedForward(nn.Module):
         super().__init__()
         hidden_dim = 4 * config.d_model
         hidden_dim = int(2 * hidden_dim / 3)
-        # Custom multiple of 256 for optimal hardware usage (optional)
-        # hidden_dim = 256 * ((hidden_dim + 256 - 1) // 256)
+        # Round to nearest multiple of 256 for optimal GPU utilization
+        hidden_dim = 256 * ((hidden_dim + 255) // 256)
 
         self.w1 = nn.Linear(config.d_model, hidden_dim, bias=config.bias)
         self.w2 = nn.Linear(hidden_dim, config.d_model, bias=config.bias)
@@ -83,16 +86,15 @@ class Attention(nn.Module):
         self.wk = nn.Linear(config.d_model, config.n_heads * self.head_dim, bias=config.bias)
         self.wv = nn.Linear(config.d_model, config.n_heads * self.head_dim, bias=config.bias)
         self.wo = nn.Linear(config.n_heads * self.head_dim, config.d_model, bias=config.bias)
-        
+
         self.resid_dropout = nn.Dropout(config.dropout)
         self.attn_dropout = nn.Dropout(config.dropout)
 
-        # Use causal mask
         self.flash = hasattr(torch.nn.functional, 'scaled_dot_product_attention')
 
     def forward(self, x: torch.Tensor, freqs_cis: torch.Tensor):
         bsz, seqlen, _ = x.shape
-        
+
         xq, xk, xv = self.wq(x), self.wk(x), self.wv(x)
 
         xq = xq.view(bsz, seqlen, self.n_heads, self.head_dim)
@@ -107,19 +109,19 @@ class Attention(nn.Module):
         xv = xv.transpose(1, 2)
 
         if self.flash:
-            # efficient attention using Flash Attention CUDA kernels
             output = torch.nn.functional.scaled_dot_product_attention(
-                xq, xk, xv, attn_mask=None, dropout_p=self.attn_dropout.p if self.training else 0.0, is_causal=True
+                xq, xk, xv, attn_mask=None,
+                dropout_p=self.attn_dropout.p if self.training else 0.0,
+                is_causal=True
             )
         else:
-            # manual implementation of attention
             scores = torch.matmul(xq, xk.transpose(2, 3)) / math.sqrt(self.head_dim)
             mask = torch.triu(torch.ones(seqlen, seqlen, dtype=torch.bool, device=x.device), diagonal=1)
             scores = scores.masked_fill(mask, float('-inf'))
             scores = F.softmax(scores.float(), dim=-1).type_as(xq)
             scores = self.attn_dropout(scores)
             output = torch.matmul(scores, xv)
-        
+
         output = output.transpose(1, 2).contiguous().view(bsz, seqlen, -1)
         return self.resid_dropout(self.wo(output))
 
@@ -128,9 +130,6 @@ class TransformerBlock(nn.Module):
     def __init__(self, config: BUVNConfig):
         """A single transformer layer."""
         super().__init__()
-        self.n_heads = config.n_heads
-        self.dim = config.d_model
-        
         self.attention = Attention(config)
         self.feed_forward = FeedForward(config)
         self.attention_norm = RMSNorm(config.d_model)
@@ -144,11 +143,12 @@ class TransformerBlock(nn.Module):
 
 class BUVNModel(nn.Module):
     def __init__(self, config: BUVNConfig):
-        """The BUVN-1.1 Foundation Model."""
+        """The BUVN Foundation Model."""
         super().__init__()
         self.config = config
         self.vocab_size = config.vocab_size
         self.n_layers = config.n_layers
+        self.gradient_checkpointing = getattr(config, 'gradient_checkpointing', False)
 
         self.tok_embeddings = nn.Embedding(config.vocab_size, config.d_model)
         self.dropout = nn.Dropout(config.dropout)
@@ -156,18 +156,21 @@ class BUVNModel(nn.Module):
         self.norm = RMSNorm(config.d_model)
         self.output = nn.Linear(config.d_model, config.vocab_size, bias=False)
 
-        # precompute RoPE frequencies
+        # Weight tying: share embedding and output weights
+        self.tok_embeddings.weight = self.output.weight
+
+        # Precompute RoPE frequencies
         freqs_cis = precompute_freqs_cis(
             config.d_model // config.n_heads, config.max_seq_len * 2, config.rope_theta
         )
         self.register_buffer("freqs_cis", freqs_cis, persistent=False)
 
-        # init weights
+        # Init weights
         self.apply(self._init_weights)
-        # apply special scaled init to the residual projections, per GPT-2 paper
+        # Depth-scaled init for residual projections (GPT-2 / nanoGPT style)
         for pn, p in self.named_parameters():
             if pn.endswith('wo.weight') or pn.endswith('w2.weight'):
-                torch.nn.init.normal_(p, mean=0.0, std=0.02/math.sqrt(2 * config.n_layers))
+                torch.nn.init.normal_(p, mean=0.0, std=0.02 / math.sqrt(2 * config.n_layers))
 
     def _init_weights(self, module):
         if isinstance(module, nn.Linear):
@@ -184,10 +187,12 @@ class BUVNModel(nn.Module):
         freqs_cis = self.freqs_cis[:seqlen]
 
         for layer in self.layers:
-            h = layer(h, freqs_cis)
-        h = self.norm(h)
+            if self.gradient_checkpointing and self.training:
+                h = grad_checkpoint(layer, h, freqs_cis, use_reentrant=False)
+            else:
+                h = layer(h, freqs_cis)
 
-        # Always compute full logits (bsz, seqlen, vocab_size)
+        h = self.norm(h)
         logits = self.output(h)
 
         if targets is not None:
@@ -197,19 +202,39 @@ class BUVNModel(nn.Module):
 
         return logits, loss
 
+    def get_num_params(self, non_embedding=True):
+        """Return the number of parameters. Exclude embeddings if weight-tied."""
+        n_params = sum(p.numel() for p in self.parameters())
+        if non_embedding:
+            n_params -= self.tok_embeddings.weight.numel()
+        return n_params
+
     def estimate_mfu(self, fwdbwd_per_iter, dt):
-        """ estimate model flops utilization (MFU) in units of A100 bfloat16 peak FLOPS """ # For hardware specs
-        # first estimate the number of flops we do per iteration.
-        # see PaLM paper Appendix B as ref: https://arxiv.org/abs/2204.02311
-        N = sum(p.numel() for p in self.parameters())
+        """Estimate model FLOPs utilization (MFU). Auto-detects GPU peak FLOPS."""
+        N = self.get_num_params()
         cfg = self.config
-        L, H, Q, T = cfg.n_layers, cfg.n_heads, cfg.d_model//cfg.n_heads, cfg.max_seq_len
+        L, H, Q, T = cfg.n_layers, cfg.n_heads, cfg.d_model // cfg.n_heads, cfg.max_seq_len
         flops_per_token = 6 * N + 12 * L * H * Q * T
         flops_per_fwdbwd = flops_per_token * T
         flops_per_iter = flops_per_fwdbwd * fwdbwd_per_iter
-        # express our flops throughput as ratio of A100 bfloat16 peak flops
-        flops_achieved = flops_per_iter / dt # per second
-        # A100 is 312 TFLOPS. We can replace this depending on specific Azure hardware used
-        flops_promised = 312e12 # A100 GPU bfloat16 peak flops is 312 TFLOPS
+        flops_achieved = flops_per_iter / dt
+
+        # Auto-detect GPU peak FLOPS (bf16)
+        flops_promised = 312e12  # default: A100
+        if torch.cuda.is_available():
+            gpu_name = torch.cuda.get_device_name(0).lower()
+            if 'h100' in gpu_name:
+                flops_promised = 989.5e12  # H100 SXM bf16
+                if 'nvl' in gpu_name:
+                    flops_promised = 835e12  # H100 NVL bf16
+            elif 'h200' in gpu_name:
+                flops_promised = 989.5e12
+            elif 'a100' in gpu_name:
+                flops_promised = 312e12
+            elif '4090' in gpu_name:
+                flops_promised = 165.2e12
+            elif '3090' in gpu_name:
+                flops_promised = 71e12
+
         mfu = flops_achieved / flops_promised
         return mfu

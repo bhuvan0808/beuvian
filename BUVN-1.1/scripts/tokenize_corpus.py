@@ -77,9 +77,9 @@ def tokenize_corpus(
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Tokenize corpus into binary files")
-    parser.add_argument("--corpus", type=str, default="BUVN-1.1/data/processed/corpus.txt")
-    parser.add_argument("--tokenizer", type=str, default="BUVN-1.1/tokenizer/tokenizer.json")
-    parser.add_argument("--output_dir", type=str, default="BUVN-1.1/data/processed")
+    parser.add_argument("--corpus", type=str, default="data/processed/corpus.txt")
+    parser.add_argument("--tokenizer", type=str, default="tokenizer/tokenizer.json")
+    parser.add_argument("--output_dir", type=str, default="data/processed")
     parser.add_argument("--val_ratio", type=float, default=0.01)
     args = parser.parse_args()
 
