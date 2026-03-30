@@ -1,21 +1,21 @@
 <!-- ═══════════════════════════════════════════════════════════════════════════
-     🧠 BUVN-1.1 — Foundation Language Model
+     🌐 Beuvian — AI Model Ecosystem
      Built from scratch by Bhuvan
 ═══════════════════════════════════════════════════════════════════════════ -->
 
 <div align="center">
 
 <!-- Animated SVG Header -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=250&section=header&text=🧠%20BUVN-1.1&fontSize=80&fontColor=fff&animation=fadeIn&fontAlignY=35&desc=Foundation%20Language%20Model%20•%20Built%20From%20Scratch&descAlignY=55&descSize=20" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2,6,11,20,30&height=280&section=header&text=🌐%20Beuvian&fontSize=90&fontColor=fff&animation=fadeIn&fontAlignY=30&desc=AI%20Model%20Ecosystem%20•%20Foundation%20•%20Code%20•%20Finance&descAlignY=55&descSize=20" width="100%"/>
 
 <!-- Animated Typing -->
 <a href="#">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=58A6FF&center=true&vCenter=true&multiline=true&repeat=true&width=700&height=100&lines=GPT-Style+Decoder-Only+Transformer;Trained+on+74.5+Million+Tokens+from+WikiText-103;Full+Pipeline+%E2%80%94+Data+%E2%86%92+Tokenizer+%E2%86%92+Training+%E2%86%92+API" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=58A6FF&center=true&vCenter=true&multiline=true&repeat=true&width=750&height=120&lines=One+Foundation.+Three+Specializations.;BUVN+%E2%80%94+The+Brain.+SRVN+%E2%80%94+The+Coder.+MNI+%E2%80%94+The+Analyst.;Built+From+Scratch+%E2%80%94+No+Pretrained+Weights." alt="Typing SVG" />
 </a>
 
 <br/>
 
-<!-- Animated Badges -->
+<!-- Badges -->
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)](https://pytorch.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
@@ -24,15 +24,14 @@
 
 <br/>
 
-<!-- Star/Fork Animation Badges -->
-<img src="https://img.shields.io/badge/Status-Active%20Development-brightgreen?style=flat-square&labelColor=1a1a2e&color=16c79a" />
-<img src="https://img.shields.io/badge/Model-Decoder--Only%20Transformer-blue?style=flat-square&labelColor=1a1a2e&color=58a6ff" />
-<img src="https://img.shields.io/badge/Tokens-74.5M%20Trained-purple?style=flat-square&labelColor=1a1a2e&color=bc6ff1" />
+<img src="https://img.shields.io/badge/Ecosystem-3%20Models-brightgreen?style=flat-square&labelColor=1a1a2e&color=16c79a" />
+<img src="https://img.shields.io/badge/BUVN-Foundation-blue?style=flat-square&labelColor=1a1a2e&color=58a6ff" />
+<img src="https://img.shields.io/badge/SRVN-Code%20Agent-orange?style=flat-square&labelColor=1a1a2e&color=f39c12" />
+<img src="https://img.shields.io/badge/MNI-Finance-purple?style=flat-square&labelColor=1a1a2e&color=bc6ff1" />
 
 <br/><br/>
 
-<!-- Quick Nav with Emojis -->
-[📥 Install](#-step-0--install-dependencies) · [📊 Download Data](#-step-1--download-the-dataset) · [🔤 Tokenizer](#-step-2--train-the-tokenizer) · [🏋️ Train](#-step-4--train-the-model) · [🧪 Inference](#-step-5--run-inference) · [🌐 API](#-step-6--start-the-api-server) · [📈 Results](#-training-results)
+[🧠 BUVN — Foundation](#-buvn--the-foundation) · [💻 SRVN — Code Agent](#-srvn--the-coder) · [📈 MNI — Finance](#-mni--the-analyst) · [🗺️ Roadmap](#-the-beuvian-roadmap) · [🚀 Quick Start](#-quick-start)
 
 </div>
 
@@ -43,35 +42,43 @@
 
 <br/>
 
-## 🎯 What is BUVN-1.1?
+## 🌐 What is Beuvian?
 
 <table>
 <tr>
-<td width="60%">
+<td width="55%">
 
-**BUVN-1.1** is a complete, production-quality codebase for training a **GPT-style language model from scratch.**
+**Beuvian** is not a single model — it's an **ecosystem of AI models** built from the ground up, each designed for a different domain of intelligence.
 
-It covers the entire ML pipeline — from downloading raw text from the internet, to serving inference via a REST API.
+It starts with a single question: *What if one developer could build an entire AI model family from scratch — no pretrained weights, no shortcuts, no black boxes?*
 
-> *"The best way to understand how large language models work is to build one yourself."*
+The answer is Beuvian.
+
+> *"Don't just use AI. Understand it. Build it. Own it."*
+
+Every model in the Beuvian family shares the same DNA — the same transformer architecture, the same training philosophy, the same codebase. But each one evolves to master a different world.
 
 </td>
-<td width="40%">
+<td width="45%">
 
 ```
-🌐 Raw Text (WikiText-103)
-      ↓
-🧹 Clean & Filter
-      ↓
-🔤 Train BPE Tokenizer
-      ↓
-📦 Tokenize → Binary
-      ↓
-🏋️ Train Transformer
-      ↓
-🧪 Generate Text
-      ↓
-🌐 Deploy as API
+         🌐 BEUVIAN ECOSYSTEM
+         ═══════════════════
+
+    ┌─────────────────────────┐
+    │   🧠 BUVN (Foundation)  │
+    │   General Intelligence  │
+    │   "The Brain"           │
+    └────────┬────────────────┘
+             │
+     ┌───────┴───────┐
+     ▼               ▼
+┌─────────┐   ┌─────────────┐
+│ 💻 SRVN │   │  📈 MNI     │
+│ Code    │   │  Finance    │
+│ Agent   │   │  Analyst    │
+│"Coder"  │   │ "Analyst"   │
+└─────────┘   └─────────────┘
 ```
 
 </td>
@@ -80,29 +87,42 @@ It covers the entire ML pipeline — from downloading raw text from the internet
 
 <br/>
 
-## 💡 What is a Foundation Model?
+## 🧬 The Model Family
 
 <div align="center">
 
 ```mermaid
-graph LR
-    A[📚 Raw Text Data] -->|Pre-training| B[🧠 Foundation Model]
-    B -->|Fine-tuning| C[💬 Chatbot]
-    B -->|Fine-tuning| D[📝 Summarizer]
-    B -->|Fine-tuning| E[💻 Code Assistant]
-    B -->|RLHF| F[🤖 AI Assistant]
-    
-    style A fill:#1a1a2e,stroke:#16c79a,color:#fff
-    style B fill:#1a1a2e,stroke:#58a6ff,color:#fff
-    style C fill:#1a1a2e,stroke:#bc6ff1,color:#fff
-    style D fill:#1a1a2e,stroke:#bc6ff1,color:#fff
-    style E fill:#1a1a2e,stroke:#bc6ff1,color:#fff
-    style F fill:#1a1a2e,stroke:#f39c12,color:#fff
+graph TD
+    RAW["📚 Raw Internet Text"] -->|Pre-training| BUVN["🧠 BUVN-1.1<br/>Foundation Model"]
+
+    BUVN -->|Fine-tune on Code| SRVN["💻 SRVN<br/>Coding Agent"]
+    BUVN -->|Train on Market Data| MNI["📈 MNI<br/>Finance Model"]
+
+    SRVN -->|Capabilities| S1["🔧 Code Generation"]
+    SRVN -->|Capabilities| S2["🐛 Bug Detection"]
+    SRVN -->|Capabilities| S3["📝 Code Review"]
+    SRVN -->|Capabilities| S4["🤖 Agentic Workflows"]
+
+    MNI -->|Capabilities| M1["📊 Price Prediction"]
+    MNI -->|Capabilities| M2["📰 Sentiment Analysis"]
+    MNI -->|Capabilities| M3["⚠️ Risk Assessment"]
+    MNI -->|Capabilities| M4["🔍 Pattern Recognition"]
+
+    style RAW fill:#1a1a2e,stroke:#16c79a,color:#fff
+    style BUVN fill:#0d1117,stroke:#58a6ff,color:#fff,stroke-width:3px
+    style SRVN fill:#0d1117,stroke:#f39c12,color:#fff,stroke-width:3px
+    style MNI fill:#0d1117,stroke:#bc6ff1,color:#fff,stroke-width:3px
+    style S1 fill:#1a1a2e,stroke:#f39c12,color:#fff
+    style S2 fill:#1a1a2e,stroke:#f39c12,color:#fff
+    style S3 fill:#1a1a2e,stroke:#f39c12,color:#fff
+    style S4 fill:#1a1a2e,stroke:#f39c12,color:#fff
+    style M1 fill:#1a1a2e,stroke:#bc6ff1,color:#fff
+    style M2 fill:#1a1a2e,stroke:#bc6ff1,color:#fff
+    style M3 fill:#1a1a2e,stroke:#bc6ff1,color:#fff
+    style M4 fill:#1a1a2e,stroke:#bc6ff1,color:#fff
 ```
 
 </div>
-
-A **foundation model** is a neural network trained on massive unlabeled text. BUVN-1.1 implements the **pre-training** step — the foundation upon which chatbots, code assistants, and AI agents are built.
 
 <br/>
 
@@ -111,56 +131,504 @@ A **foundation model** is a neural network trained on massive unlabeled text. BU
 
 <br/>
 
-## 🏗 Architecture
+## 🧠 BUVN — The Foundation
+
+<div align="center">
+
+<img src="https://img.shields.io/badge/Status-v1.1%20Released-brightgreen?style=for-the-badge&labelColor=0d1117&color=16c79a" />
+<img src="https://img.shields.io/badge/Type-Foundation%20LLM-blue?style=for-the-badge&labelColor=0d1117&color=58a6ff" />
+<img src="https://img.shields.io/badge/Parameters-2.8M%20→%20120M-purple?style=for-the-badge&labelColor=0d1117&color=bc6ff1" />
+
+</div>
+
+<br/>
+
+<table>
+<tr>
+<td width="65%">
+
+### What is BUVN?
+
+**BUVN** (**B**h**UV**a**N**) is the **primary foundation model** — the beating heart of the entire Beuvian ecosystem. It is a GPT-style decoder-only transformer trained from scratch on raw internet text, designed to learn the fundamental patterns of human language.
+
+Every other model in the Beuvian family **inherits from BUVN**. Just as GPT-3 gave birth to ChatGPT and Codex, BUVN gives birth to SRVN (code) and MNI (finance). The stronger the foundation, the stronger every specialization built on top of it.
+
+**BUVN-1.1** is the first stable release — trained on 74.5M tokens from WikiText-103 with a modern transformer architecture featuring RoPE, RMSNorm, SwiGLU, and Flash Attention support.
+
+### Why Build a Foundation Model From Scratch?
+
+Most developers fine-tune someone else's model and call it a day. Beuvian takes the harder path — building from raw text to trained weights — because:
+
+- **Full understanding** — You can't truly master AI if you've never built the engine
+- **Full control** — No license restrictions, no API rate limits, no vendor lock-in
+- **Full customization** — Every layer, every hyperparameter, every training decision is yours
+- **Foundation for specialization** — SRVN and MNI aren't built on borrowed weights; they're built on *your* weights
+
+</td>
+<td width="35%">
+
+### Architecture
+
+```
+📝 Input Tokens
+      ↓
+  Embedding Layer
+      ↓
+  ┌──────────────┐
+  │ Transformer  │ ×N
+  │   Block      │
+  │              │
+  │ ● RMSNorm   │
+  │ ● Attention  │
+  │   + RoPE     │
+  │ ● SwiGLU FFN│
+  │ ● Residuals  │
+  └──────────────┘
+      ↓
+  RMSNorm
+      ↓
+  Linear → Logits
+      ↓
+  📤 Next Token
+```
+
+### Key Specs
+
+| | CPU Test | Prod |
+|---|:---:|:---:|
+| Params | 2.8M | 120M |
+| Layers | 4 | 12 |
+| d_model | 128 | 768 |
+| Vocab | 8K | 50K |
+| Context | 128 | 512 |
+
+</td>
+</tr>
+</table>
+
+<details>
+<summary>📂 <b>Click to expand: BUVN-1.1 Full Pipeline</b></summary>
+<br/>
+
+```bash
+# Clone & setup
+git clone <repo-url> && cd BUVN-1.1
+pip install -r requirements.txt && export PYTHONPATH=$(pwd)
+
+# 6-step pipeline
+python scripts/prepare_data.py --max_size_mb 300           # 1. Download data
+python scripts/train_hf_tokenizer.py --vocab_size 8000     # 2. Train tokenizer
+python scripts/tokenize_corpus.py                           # 3. Tokenize to binary
+python training/train.py --config configs/train_config.yaml # 4. Train model
+python inference/generate.py --prompt "AI is"               # 5. Generate text
+python api/app.py                                           # 6. Deploy API
+```
+
+📘 **Full documentation:** See [BUVN-1.1/README.md](BUVN-1.1/README.md) for the complete step-by-step guide, architecture deep dive, training results, and API documentation.
+
+</details>
+
+<br/>
+
+<!-- Animated Divider -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+
+<br/>
+
+## 💻 SRVN — The Coder
+
+<div align="center">
+
+<img src="https://img.shields.io/badge/Status-Planned-yellow?style=for-the-badge&labelColor=0d1117&color=f39c12" />
+<img src="https://img.shields.io/badge/Type-Code%20Agent%20LLM-orange?style=for-the-badge&labelColor=0d1117&color=e67e22" />
+<img src="https://img.shields.io/badge/Method-Fine--Tuned%20from%20BUVN-blue?style=for-the-badge&labelColor=0d1117&color=58a6ff" />
+
+</div>
+
+<br/>
+
+<table>
+<tr>
+<td width="65%">
+
+### What is SRVN?
+
+**SRVN** (**S**a**RV**a**N**) is the **coding agent model** — a specialized descendant of BUVN, fine-tuned to understand, generate, debug, and reason about code. While BUVN speaks human language, SRVN speaks the language of machines.
+
+SRVN isn't just a code autocompleter — it's designed to be an **agentic coding system** that can:
+
+- **Understand codebases** — Parse, navigate, and comprehend entire repositories
+- **Generate code** — Write functions, classes, and modules from natural language descriptions
+- **Debug and fix** — Identify bugs, suggest fixes, and explain root causes
+- **Review and refactor** — Analyze code quality, suggest improvements, detect anti-patterns
+- **Execute workflows** — Chain together multi-step coding tasks autonomously (agentic mode)
+- **Explain code** — Translate complex logic into clear, human-readable explanations
+
+### How Will SRVN Be Built?
+
+SRVN takes BUVN's pre-trained weights and continues training on a curated code corpus. This is **transfer learning in action** — the foundation model's understanding of language, logic, and structure gives SRVN a massive head start on understanding code.
+
+**Training Strategy:**
+
+| Phase | Data Source | Technique | Goal |
+|-------|-----------|-----------|------|
+| **Phase 1: Code Pre-training** | The Stack v2, GitHub Code | Continued pre-training | Learn syntax, patterns, and idioms across 20+ languages |
+| **Phase 2: Instruction Tuning** | CodeAlpaca, Code-Instruct | Supervised fine-tuning (SFT) | Follow coding instructions: "Write a function that..." |
+| **Phase 3: Agentic Training** | Tool-use datasets, ReAct traces | Reinforcement learning | Plan → Code → Test → Debug → Iterate autonomously |
+| **Phase 4: Alignment** | Human preference data | DPO / RLHF | Prefer safe, readable, well-documented code |
+
+</td>
+<td width="35%">
+
+### Target Capabilities
+
+```
+💻 SRVN Capabilities
+═══════════════════
+
+🔧 Code Generation
+   Python, JS, Rust, Go,
+   Java, C++, SQL, Bash...
+
+🐛 Bug Detection
+   Static analysis via LLM
+   Root cause identification
+   Auto-fix suggestions
+
+📝 Code Review
+   Quality scoring
+   Anti-pattern detection
+   Refactoring suggestions
+
+🤖 Agentic Mode
+   Multi-step task planning
+   Tool use (shell, git, API)
+   Self-correcting loops
+
+📖 Code Explanation
+   Line-by-line breakdown
+   Architecture summaries
+   Documentation generation
+```
+
+### Target Languages
+
+| Priority | Languages |
+|:---:|---|
+| 🔴 | Python, JavaScript, TypeScript |
+| 🟠 | Rust, Go, Java, C++ |
+| 🟡 | SQL, Bash, C#, Ruby |
+| 🟢 | Swift, Kotlin, Scala |
+
+</td>
+</tr>
+</table>
+
+<details>
+<summary>🔬 <b>Click to expand: SRVN Technical Deep Dive</b></summary>
+<br/>
+
+### Data Pipeline
+
+```
+📦 Raw Code Sources                    🧹 Cleaning & Filtering              🔤 Code Tokenizer
+═══════════════════                    ══════════════════════              ═══════════════════
+
+The Stack v2 (3TB+)  ──┐              ● License filtering (permissive)    ● Extended BPE vocab
+GitHub Public Code   ──┤──────────▶   ● Deduplication (MinHash)      ──▶  ● Code-aware tokens
+CodeSearchNet        ──┤              ● Quality scoring (AST parse)       ● Whitespace handling
+Programming books    ──┘              ● PII removal                       ● Multi-language support
+                                       ● Min 10 lines, max 10K lines
+```
+
+### Architecture Modifications (from BUVN)
+
+SRVN builds on BUVN's transformer architecture with code-specific enhancements:
+
+| Component | BUVN (Base) | SRVN (Modified) |
+|-----------|------------|----------------|
+| Tokenizer | BPE 50K general | BPE 64K with code tokens (indentation, brackets, operators) |
+| Context Window | 512 tokens | 4096 tokens (code files are longer than prose) |
+| Training Objective | Next-token prediction | Next-token + Fill-in-the-Middle (FIM) |
+| Special Tokens | `<BOS>`, `<EOS>`, `<PAD>` | + `<FIM_PREFIX>`, `<FIM_SUFFIX>`, `<FIM_MIDDLE>`, `<LANG:py>`, `<TOOL_CALL>` |
+| Attention | Standard causal | + Repository-level cross-file attention (planned) |
+
+### Fill-in-the-Middle (FIM) Training
+
+SRVN will support infilling — predicting missing code in the middle of a file, not just at the end:
+
+```python
+# FIM training transforms:
+# Original:
+def factorial(n):
+    if n <= 1:
+        return 1
+    return n * factorial(n - 1)
+
+# FIM format (50% of training samples):
+<FIM_PREFIX>def factorial(n):
+    if n <= 1:
+<FIM_SUFFIX>    return n * factorial(n - 1)<FIM_MIDDLE>        return 1
+```
+
+### Agentic Architecture
+
+```
+┌─────────────────────────────────────────────────────┐
+│                    SRVN Agent Loop                   │
+│                                                      │
+│   📋 Task    ──▶  🧠 Plan    ──▶  💻 Code           │
+│     ▲                                  │             │
+│     │                                  ▼             │
+│   📊 Review  ◀──  🐛 Debug   ◀──  🧪 Test           │
+│                                                      │
+│   Tools: [shell, git, file_read, file_write,         │
+│           web_search, test_runner, linter]            │
+└─────────────────────────────────────────────────────┘
+```
+
+### Evaluation Benchmarks
+
+| Benchmark | What It Measures | Target Score |
+|-----------|-----------------|:---:|
+| HumanEval | Python function generation | > 25% pass@1 |
+| MBPP | Basic programming problems | > 30% pass@1 |
+| DS-1000 | Data science code generation | > 15% pass@1 |
+| SWE-bench | Real GitHub issue resolution | > 5% resolved |
+| CodeXGLUE | Code understanding tasks | Competitive |
+
+</details>
+
+<br/>
+
+<!-- Animated Divider -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+
+<br/>
+
+## 📈 MNI — The Analyst
+
+<div align="center">
+
+<img src="https://img.shields.io/badge/Status-Planned-yellow?style=for-the-badge&labelColor=0d1117&color=f39c12" />
+<img src="https://img.shields.io/badge/Type-Finance%20LLM-purple?style=for-the-badge&labelColor=0d1117&color=bc6ff1" />
+<img src="https://img.shields.io/badge/Method-Domain--Trained%20from%20BUVN-blue?style=for-the-badge&labelColor=0d1117&color=58a6ff" />
+
+</div>
+
+<br/>
+
+<table>
+<tr>
+<td width="65%">
+
+### What is MNI?
+
+**MNI** (**M**o**NI**tor) is the **finance model** — a specialized descendant of BUVN, trained on stock market data, financial reports, economic indicators, and trading signals. While BUVN understands human language and SRVN understands code, MNI understands the language of markets.
+
+Markets generate an ocean of data every second — price movements, volume patterns, order flows, earnings reports, news sentiment, macroeconomic signals. Most of this data is consumed by humans who can only process a fraction of it. MNI is designed to ingest it all, find the patterns humans miss, and surface actionable intelligence.
+
+### What Makes MNI Different?
+
+Unlike generic finance chatbots that just summarize news, MNI is designed to be a **multi-modal financial reasoning engine**:
+
+- **Time-series understanding** — Process and predict sequential price/volume data natively
+- **Sentiment analysis** — Parse earnings calls, SEC filings, financial news, and social media for market-moving signals
+- **Pattern recognition** — Identify technical patterns (head & shoulders, cup & handle, breakouts) from raw price data
+- **Risk assessment** — Quantify portfolio risk, detect anomalies, flag potential black swan indicators
+- **Cross-asset correlation** — Understand how bonds, equities, commodities, and crypto interact
+- **Report generation** — Produce institutional-grade research summaries and trade rationale
+
+### How Will MNI Be Built?
+
+MNI takes a **hybrid training approach** — combining BUVN's language understanding with domain-specific financial data:
+
+**Training Strategy:**
+
+| Phase | Data Source | Technique | Goal |
+|-------|-----------|-----------|------|
+| **Phase 1: Financial Pre-training** | SEC filings, earnings transcripts, financial textbooks | Continued pre-training | Learn financial vocabulary, accounting concepts, market structure |
+| **Phase 2: Market Data Training** | Historical OHLCV, order books, tick data | Specialized tokenization + training | Understand price action, volume patterns, technical indicators |
+| **Phase 3: Sentiment Training** | Financial news (Reuters, Bloomberg), Reddit/Twitter, analyst reports | Supervised fine-tuning | Extract sentiment, urgency, and impact from unstructured text |
+| **Phase 4: Prediction Training** | Labeled market outcomes, backtested signals | Reinforcement learning with market rewards | Optimize for prediction accuracy and risk-adjusted returns |
+
+</td>
+<td width="35%">
+
+### Target Capabilities
+
+```
+📈 MNI Capabilities
+═══════════════════
+
+📊 Price Prediction
+   Short-term (1-5 days)
+   Medium-term (1-3 months)
+   Trend classification
+
+📰 Sentiment Analysis
+   News impact scoring
+   Earnings call parsing
+   Social media signals
+   SEC filing analysis
+
+⚠️ Risk Assessment
+   Portfolio risk scoring
+   Anomaly detection
+   Drawdown prediction
+   Volatility forecasting
+
+🔍 Pattern Recognition
+   Technical patterns
+   Volume analysis
+   Support/resistance
+   Market regime detection
+
+📋 Report Generation
+   Research summaries
+   Trade rationale
+   Risk reports
+   Market commentary
+```
+
+### Target Markets
+
+| Priority | Asset Class |
+|:---:|---|
+| 🔴 | US Equities (NYSE, NASDAQ) |
+| 🟠 | Indian Equities (NSE, BSE) |
+| 🟡 | Forex (Major pairs) |
+| 🟢 | Crypto (BTC, ETH, Top 20) |
+| 🔵 | Commodities (Gold, Oil) |
+
+</td>
+</tr>
+</table>
+
+<details>
+<summary>🔬 <b>Click to expand: MNI Technical Deep Dive</b></summary>
+<br/>
+
+### Data Pipeline
+
+```
+📦 Financial Data Sources              🧹 Processing & Alignment            🔤 Finance Tokenizer
+══════════════════════                 ═════════════════════════            ══════════════════════
+
+SEC EDGAR (10-K/Q)    ──┐             ● Timestamp alignment (UTC)          ● Extended BPE vocab
+Yahoo Finance OHLCV   ──┤             ● Missing data interpolation         ● Numeric-aware tokens
+Earnings Transcripts  ──┤─────────▶   ● Outlier detection/handling    ──▶  ● Ticker symbols
+Financial News APIs   ──┤             ● Normalization (z-score/minmax)     ● Financial terms
+Reddit r/wallstreetbets──┤             ● Deduplication                     ● Price format tokens
+Alpha Vantage API     ──┘             ● Train/val/test temporal split      ● Date/time tokens
+```
+
+### Architecture Modifications (from BUVN)
+
+MNI extends BUVN's transformer with finance-specific capabilities:
+
+| Component | BUVN (Base) | MNI (Modified) |
+|-----------|------------|----------------|
+| Tokenizer | BPE 50K general | BPE 64K with financial tokens ($TSLA, +2.3%, Q3'24, EPS) |
+| Context Window | 512 tokens | 2048 tokens (financial reports are lengthy) |
+| Input Encoding | Text only | Text + Numeric embeddings (prices, volumes, ratios) |
+| Special Tokens | `<BOS>`, `<EOS>`, `<PAD>` | + `<TICKER>`, `<PRICE>`, `<DATE>`, `<SENTIMENT:pos>`, `<SIGNAL>` |
+| Output Heads | Single (next-token) | Multi-head: text generation + numeric regression + classification |
+| Positional Encoding | RoPE | RoPE + Temporal encoding (market hours, trading days, earnings dates) |
+
+### Multi-Modal Financial Input
+
+MNI is designed to process financial data in a unified token stream:
+
+```
+<DATE:2026-03-28> <TICKER:AAPL> <PRICE:open=178.50,high=182.30,low=177.90,close=181.20,vol=45.2M>
+<SENTIMENT:pos,score=0.82> Apple reported Q1 earnings beating estimates by 12%,
+driven by strong iPhone 16 sales in emerging markets. Services revenue hit all-time
+high of $23.1B. <SIGNAL:bullish,confidence=0.74> Price target raised to $210 by
+Morgan Stanley citing AI integration catalyst.
+```
+
+### Evaluation Benchmarks
+
+| Benchmark | What It Measures | Target |
+|-----------|-----------------|:---:|
+| Directional Accuracy | Next-day up/down prediction | > 55% |
+| Sentiment F1 | Financial news sentiment classification | > 0.78 |
+| Sharpe Ratio | Risk-adjusted returns of generated signals | > 1.5 |
+| Report BLEU | Quality of generated research summaries | > 0.35 |
+| Anomaly Detection AUC | Identifying unusual market behavior | > 0.80 |
+
+### Risk & Compliance Considerations
+
+| ⚠️ Consideration | 📋 Approach |
+|:---:|---|
+| Not financial advice | All outputs include disclaimers; model is a research/analysis tool |
+| Backtesting bias | Walk-forward validation with out-of-sample testing |
+| Market manipulation risk | No real-time trade execution; signal generation only |
+| Data freshness | Designed for batch analysis, not HFT (high-frequency trading) |
+| Regulatory compliance | SEC/SEBI-aware output formatting |
+
+</details>
+
+<br/>
+
+<!-- Animated Divider -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+
+<br/>
+
+## 🔬 How the Three Models Connect
 
 <div align="center">
 
 ```mermaid
 graph TB
-    INPUT["📝 Input Tokens"] --> EMB["Embedding Layer"]
-    EMB --> TB1["🔲 Transformer Block 1"]
-    TB1 --> TB2["🔲 Transformer Block 2"]
-    TB2 --> DOTS["⋮"]
-    DOTS --> TBN["🔲 Transformer Block N"]
-    TBN --> NORM["RMSNorm"]
-    NORM --> OUT["📤 Output Logits"]
-    
-    subgraph TB["Each Transformer Block"]
-        direction TB
-        A1["RMSNorm"] --> A2["Multi-Head Attention + RoPE"]
-        A2 --> A3["+ Residual"]
-        A3 --> A4["RMSNorm"]
-        A4 --> A5["SwiGLU FFN"]
-        A5 --> A6["+ Residual"]
+    subgraph FOUNDATION["🧠 BUVN — Foundation Layer"]
+        direction LR
+        D1["📚 WikiText-103 / C4"] --> T1["🔤 BPE Tokenizer"]
+        T1 --> PT["🏋️ Pre-training<br/>120M params"]
+        PT --> CKPT["💾 Foundation<br/>Checkpoint"]
     end
-    
-    style INPUT fill:#0d1117,stroke:#58a6ff,color:#fff
-    style OUT fill:#0d1117,stroke:#16c79a,color:#fff
-    style TB1 fill:#161b22,stroke:#58a6ff,color:#fff
-    style TB2 fill:#161b22,stroke:#58a6ff,color:#fff
-    style TBN fill:#161b22,stroke:#58a6ff,color:#fff
+
+    subgraph CODE["💻 SRVN — Code Specialization"]
+        direction LR
+        D2["📦 The Stack v2<br/>GitHub Code"] --> FT1["🔧 Fine-tuning<br/>+ FIM Training"]
+        FT1 --> AG["🤖 Agentic<br/>Training"]
+        AG --> SRVN_OUT["💻 Code Agent<br/>Model"]
+    end
+
+    subgraph FINANCE["📈 MNI — Finance Specialization"]
+        direction LR
+        D3["📊 Market Data<br/>SEC / News"] --> FT2["📉 Domain<br/>Pre-training"]
+        FT2 --> ST["📰 Sentiment<br/>Training"]
+        ST --> MNI_OUT["📈 Finance<br/>Model"]
+    end
+
+    CKPT -->|Transfer weights| FT1
+    CKPT -->|Transfer weights| FT2
+
+    SRVN_OUT --> API1["🌐 Code API<br/>POST /generate-code"]
+    MNI_OUT --> API2["🌐 Finance API<br/>POST /analyze"]
+
+    style FOUNDATION fill:#0d1117,stroke:#58a6ff,color:#fff
+    style CODE fill:#0d1117,stroke:#f39c12,color:#fff
+    style FINANCE fill:#0d1117,stroke:#bc6ff1,color:#fff
+    style CKPT fill:#161b22,stroke:#16c79a,color:#fff,stroke-width:3px
+    style SRVN_OUT fill:#161b22,stroke:#f39c12,color:#fff,stroke-width:2px
+    style MNI_OUT fill:#161b22,stroke:#bc6ff1,color:#fff,stroke-width:2px
 ```
 
 </div>
 
-<details>
-<summary>🔍 <b>Click to expand: Model Specifications</b></summary>
-<br/>
+The relationship is hierarchical:
 
-| Parameter | 🖥️ CPU Test Config | ☁️ Production Config |
-|-----------|:---:|:---:|
-| **Parameters** | ~2M | ~120M |
-| **Layers** | 4 | 12 |
-| **Attention Heads** | 4 | 12 |
-| **Embedding Dim** | 128 | 768 |
-| **Context Length** | 128 tokens | 512 tokens |
-| **Vocab Size** | 8,000 | 50,000 |
-| **Positional Encoding** | RoPE ✅ | RoPE ✅ |
-| **Activation** | SwiGLU ✅ | SwiGLU ✅ |
-| **Normalization** | RMSNorm ✅ | RMSNorm ✅ |
-| **Attention** | Flash (SDPA) ✅ | Flash (SDPA) ✅ |
+1. **BUVN trains first** — It learns the fundamental structure of language from raw text. This is the most expensive and time-consuming step, but it only happens once.
 
-</details>
+2. **SRVN and MNI inherit** — They start from BUVN's checkpoint (not from random weights), which means they already understand grammar, logic, reasoning, and world knowledge. Fine-tuning is faster and cheaper.
+
+3. **Each model specializes** — SRVN sees millions of code files and learns programming. MNI sees market data and financial text and learns to think like an analyst. Their language understanding comes from BUVN; their domain expertise is their own.
+
+4. **All share the same API** — Every model in the Beuvian family is served through the same FastAPI infrastructure with the same request/response format, making integration seamless.
 
 <br/>
 
@@ -169,123 +637,63 @@ graph TB
 
 <br/>
 
-## 📂 Project Structure
-
-```
-BUVN-1.1/
-│
-├── 🧠 model/                          Core neural network
-│   ├── config.py                      Model hyperparameters dataclass
-│   ├── model.py                       Transformer, Attention, RoPE, SwiGLU
-│   └── utils.py                       Device detection helpers
-│
-├── 🔤 tokenizer/                      Tokenizer scripts
-│   └── train_tokenizer.py             SentencePiece trainer (alternative)
-│
-├── 🏋️ training/                       Training pipeline
-│   ├── config.py                      YAML config parser
-│   ├── dataloader.py                  Memory-mapped binary data loader
-│   └── train.py                       AdamW + cosine LR + mixed precision
-│
-├── 🧪 inference/                      Text generation
-│   ├── sample.py                      Top-k sampling with temperature
-│   └── generate.py                    CLI generator & model loader
-│
-├── 🌐 api/                            FastAPI deployment
-│   ├── app.py                         Server startup + CORS
-│   └── routes.py                      POST /generate endpoint
-│
-├── ⚙️ scripts/                        Pipeline utilities
-│   ├── prepare_data.py                WikiText-103 streaming downloader
-│   ├── train_hf_tokenizer.py          HuggingFace BPE tokenizer trainer
-│   ├── tokenize_corpus.py             Text → train.bin / val.bin
-│   ├── test_inference.py              Quick inference test
-│   └── convert_to_hf.py              Export to HuggingFace format
-│
-├── 📋 configs/
-│   └── train_config.yaml              All hyperparameters
-│
-├── 📄 requirements.txt                Python dependencies
-├── 📄 .env.example                    Environment template
-├── 📄 .gitignore                      Excludes generated files
-└── 📘 README.md                       You are here!
-```
-
-> 💡 Directories like `data/processed/`, `checkpoints/`, and `tokenizer/tokenizer.json` are **auto-generated** by the pipeline scripts and excluded from Git.
-
-<br/>
-
-<!-- Animated Divider -->
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
-
-<br/>
-
-## 🔄 Reproducibility — Clone & Run
+## 🗺️ The Beuvian Roadmap
 
 <div align="center">
 
-> **Everything in this repo is fully reproducible.** The large generated files (corpus, tokenizer, checkpoints) are excluded from Git because they can be regenerated by running the pipeline.
+### From One Model to an Ecosystem
 
 </div>
 
-<table>
-<tr>
-<th>✅ Committed to Git (source code)</th>
-<th>🚫 Gitignored (generated, reproducible)</th>
-</tr>
-<tr>
-<td>
+```
+═══════════════════════════════════════════════════════════════════════════════════════
 
-| File | Purpose |
-|------|---------|
-| `scripts/prepare_data.py` | Downloads dataset |
-| `scripts/train_hf_tokenizer.py` | Trains tokenizer |
-| `scripts/tokenize_corpus.py` | Creates binaries |
-| `training/train.py` | Trains model |
-| `inference/generate.py` | Generates text |
-| `api/app.py` + `routes.py` | Serves API |
-| `model/*.py` | Architecture code |
-| `configs/train_config.yaml` | Hyperparameters |
-| `requirements.txt` | Dependencies |
+  PHASE 1 — FOUNDATION (Current)                                    🧠 BUVN
+  ────────────────────────────────
+  ✅ BUVN-1.1 released (2.8M params, CPU, WikiText-103)
+  🔄 Scale to 120M params on GPU (C4 dataset, 10B+ tokens)
+  🔄 Achieve perplexity < 35 (GPT-2 Small competitive)
+  🔄 Multi-GPU DDP training on Azure A100s
+  🔄 INT8/INT4 quantization for efficient inference
 
-</td>
-<td>
+═══════════════════════════════════════════════════════════════════════════════════════
 
-| File | Regenerated By |
-|------|----------------|
-| `corpus.txt` (283 MB) | Step 1 command |
-| `tokenizer.json` (540 KB) | Step 2 command |
-| `train.bin` (147 MB) | Step 3 command |
-| `val.bin` (1.5 MB) | Step 3 command |
-| `ckpt.pt` (34 MB) | Step 4 command |
-| `__pycache__/` | Python auto-gen |
-| `venv/` | pip auto-gen |
+  PHASE 2 — CODE INTELLIGENCE                                      💻 SRVN
+  ───────────────────────────────
+  📋 Curate code training corpus (The Stack v2, 500GB+)
+  📋 Extend tokenizer with code-specific vocabulary (64K tokens)
+  📋 Fine-tune BUVN checkpoint on code data
+  📋 Implement Fill-in-the-Middle (FIM) training
+  📋 Instruction-tune on coding task datasets
+  📋 Build agentic framework (tool use, self-correction)
+  📋 Benchmark on HumanEval, MBPP, SWE-bench
+  📋 Deploy as coding assistant API
 
-</td>
-</tr>
-</table>
+═══════════════════════════════════════════════════════════════════════════════════════
 
-All directories (`data/processed/`, `checkpoints/`, etc.) are **automatically created** by the scripts — no manual setup needed.
+  PHASE 3 — FINANCIAL INTELLIGENCE                                  📈 MNI
+  ────────────────────────────────
+  📋 Build financial data pipeline (SEC EDGAR, Yahoo Finance, news APIs)
+  📋 Design numeric-aware tokenization for price/volume data
+  📋 Domain pre-train BUVN on financial corpus
+  📋 Train sentiment analysis on earnings calls and news
+  📋 Build market prediction head (regression + classification)
+  📋 Backtest signal quality with walk-forward validation
+  📋 Deploy as financial analysis API
+  📋 Build dashboard for real-time market intelligence
 
-<br/>
+═══════════════════════════════════════════════════════════════════════════════════════
 
-<!-- Animated Divider -->
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+  PHASE 4 — ECOSYSTEM INTEGRATION                                   🌐 ALL
+  ────────────────────────────────
+  📋 Unified Beuvian API gateway (route to BUVN/SRVN/MNI)
+  📋 Cross-model orchestration (SRVN writes quant strategies, MNI evaluates them)
+  📋 Model versioning and A/B testing infrastructure
+  📋 HuggingFace Hub publication for all models
+  📋 Web playground for interactive demos
+  📋 Community fine-tuning guides and LoRA adapters
 
-<br/>
-
-## 🚀 Quick Start — All Commands at a Glance
-
-```bash
-git clone <your-repo-url> && cd BUVN-1.1
-pip install -r requirements.txt
-export PYTHONPATH=$(pwd)                                              # Step 0
-python scripts/prepare_data.py --max_size_mb 300                      # Step 1
-python scripts/train_hf_tokenizer.py --vocab_size 8000                # Step 2
-python scripts/tokenize_corpus.py                                     # Step 3
-python training/train.py --config configs/train_config.yaml           # Step 4
-python inference/generate.py --prompt "AI is" --checkpoint checkpoints/ckpt.pt --tokenizer tokenizer/tokenizer.json  # Step 5
-python api/app.py --checkpoint checkpoints/ckpt.pt --tokenizer tokenizer/tokenizer.json  # Step 6
+═══════════════════════════════════════════════════════════════════════════════════════
 ```
 
 <br/>
@@ -295,504 +703,61 @@ python api/app.py --checkpoint checkpoints/ckpt.pt --tokenizer tokenizer/tokeniz
 
 <br/>
 
-## 📘 Step-by-Step Guide
+## 📂 Repository Structure
 
-<!-- ==================== STEP 0 ==================== -->
-### 📥 Step 0 — Install Dependencies
+```
+beuvian/                                    🌐 Beuvian Ecosystem (this repo)
+│
+├── 📘 README.md                            You are here — ecosystem overview
+│
+├── 🧠 BUVN-1.1/                           Foundation Language Model (v1.1)
+│   ├── model/                              Transformer architecture
+│   ├── training/                           Training pipeline
+│   ├── inference/                          Text generation
+│   ├── api/                                FastAPI deployment
+│   ├── scripts/                            Pipeline automation
+│   ├── configs/                            Hyperparameters
+│   └── README.md                           Full BUVN documentation
+│
+├── 💻 SRVN/ (coming soon)                  Coding Agent Model
+│   ├── fine_tuning/                        Code fine-tuning pipeline
+│   ├── agent/                              Agentic workflow engine
+│   ├── evaluation/                         HumanEval, MBPP benchmarks
+│   └── README.md                           SRVN documentation
+│
+├── 📈 MNI/ (coming soon)                   Finance Model
+│   ├── data_pipeline/                      Market data ingestion
+│   ├── training/                           Financial domain training
+│   ├── analysis/                           Sentiment & prediction modules
+│   └── README.md                           MNI documentation
+│
+└── 🌐 gateway/ (coming soon)               Unified API Gateway
+    ├── router/                             Model routing logic
+    ├── auth/                               API key management
+    └── dashboard/                          Web playground
+```
 
-<table><tr><td>
+<br/>
 
-**Clone the repository:**
+## 🚀 Quick Start
+
 ```bash
-git clone <your-repo-url>
+# Clone the ecosystem
+git clone https://github.com/bhuvan0808/beuvian.git
+cd beuvian
+
+# Start with BUVN (the foundation)
 cd BUVN-1.1
-```
-
-**Create virtual environment:**
-```bash
-python -m venv venv
-
-# Windows PowerShell:
-venv\Scripts\activate
-
-# Linux / Mac:
-source venv/bin/activate
-```
-
-**Install packages:**
-```bash
 pip install -r requirements.txt
-```
-
-**⚠️ Set PYTHONPATH (required — do this in every new terminal):**
-```bash
-# Windows PowerShell:
-$env:PYTHONPATH = "C:\full\path\to\BUVN-1.1"
-
-# Linux / Mac:
 export PYTHONPATH=$(pwd)
-```
 
-</td></tr></table>
-
-<br/>
-
-<!-- ==================== STEP 1 ==================== -->
-### 📊 Step 1 — Download the Dataset
-
-<table><tr><td>
-
-**What it does:** Streams WikiText-103 from HuggingFace, filters out junk, and saves clean text. No full download — streams sample by sample. Stops automatically at target size.
-
-**Command:**
-```bash
+# Run the full pipeline (see BUVN-1.1/README.md for details)
 python scripts/prepare_data.py --max_size_mb 300
-```
-
-**Options:**
-
-| Flag | Default | Description |
-|------|---------|-------------|
-| `--max_size_mb` | `150` | Stop when corpus reaches this size |
-| `--min_length` | `100` | Skip lines shorter than this (chars) |
-| `--output` | `data/processed/corpus.txt` | Output path |
-
-**Example — quick test with 5 MB:**
-```bash
-python scripts/prepare_data.py --max_size_mb 5
-```
-
-</td></tr></table>
-
-<details>
-<summary>📋 <b>Click to see: Expected terminal output</b></summary>
-
-```
-Loading WikiText-103 (streaming mode)...
-Processed 100,000 samples | Written 57,723 | Size: 38.3 MB
-Processed 200,000 samples | Written 109,651 | Size: 75.2 MB
-Processed 300,000 samples | Written 167,892 | Size: 115.4 MB
-Processed 400,000 samples | Written 220,134 | Size: 152.6 MB
-...
-Done! Corpus saved to: data/processed/corpus.txt
-  Total samples scanned : 837,542
-  Total lines written   : 424,310
-  Final file size       : 283.2 MB
-```
-</details>
-
-<details>
-<summary>🔀 <b>Click to see: How to switch to C4 for production</b></summary>
-
-Change one line in `scripts/prepare_data.py`:
-```python
-# Replace:
-dataset = load_dataset("wikitext", "wikitext-103-raw-v1", split="train", streaming=True)
-
-# With:
-dataset = load_dataset("allenai/c4", "en", split="train", streaming=True)
-```
-Then set `--max_size_mb 5000` or higher.
-</details>
-
-<br/>
-
-<!-- ==================== STEP 2 ==================== -->
-### 🔤 Step 2 — Train the Tokenizer
-
-<table><tr><td>
-
-**What it does:** Trains a Byte-Level BPE tokenizer on your corpus. Two options:
-
-**Option A — HuggingFace tokenizers (recommended):**
-```bash
-python scripts/train_hf_tokenizer.py --corpus data/processed/corpus.txt --vocab_size 8000
-```
-
-**Option B — SentencePiece (alternative):**
-```bash
-python tokenizer/train_tokenizer.py --input_file data/processed/corpus.txt --vocab_size 50000
-```
-
-**Options (Option A):**
-
-| Flag | Default | Description |
-|------|---------|-------------|
-| `--corpus` | `data/processed/corpus.txt` | Input text corpus |
-| `--output` | `tokenizer/tokenizer.json` | Output tokenizer |
-| `--vocab_size` | `4000` | BPE vocabulary size |
-
-</td></tr></table>
-
-<details>
-<summary>📋 <b>Click to see: Expected output</b></summary>
-
-```
-Training BPE tokenizer on data/processed/corpus.txt (vocab_size=8000)...
-Tokenizer saved to: tokenizer/tokenizer.json
-Vocab size: 8000
-
-Test encode: 'AI is transforming the world.' -> [2, 36, 44, 321, 5582, 238, 213, 1220, 17, 3]
-Test decode: 'AI is transforming the world.'
-```
-</details>
-
-<br/>
-
-<!-- ==================== STEP 3 ==================== -->
-### 📦 Step 3 — Tokenize Corpus into Binary
-
-<table><tr><td>
-
-**What it does:** Converts corpus.txt into memory-mapped binary files (.bin) that the training dataloader reads at maximum speed.
-
-**Command:**
-```bash
+python scripts/train_hf_tokenizer.py --vocab_size 8000
 python scripts/tokenize_corpus.py
-```
-
-**Options:**
-
-| Flag | Default | Description |
-|------|---------|-------------|
-| `--corpus` | `data/processed/corpus.txt` | Input text |
-| `--tokenizer` | `tokenizer/tokenizer.json` | Tokenizer to use |
-| `--output_dir` | `data/processed` | Output directory |
-| `--val_ratio` | `0.01` | Validation split ratio |
-
-</td></tr></table>
-
-<details>
-<summary>📋 <b>Click to see: Expected output</b></summary>
-
-```
-Loaded tokenizer (vocab size: 8000, EOS id: 3)
-  Tokenized 100,000 lines | 17,461,238 tokens
-  Tokenized 200,000 lines | 35,082,109 tokens
-  Tokenized 300,000 lines | 52,647,382 tokens
-  Tokenized 400,000 lines | 70,250,999 tokens
-
-Total lines: 424,310
-Total tokens: 74,476,112
-Train tokens: 73,731,350
-Val tokens:   744,762
-Saved data/processed/train.bin (147.5 MB)
-Saved data/processed/val.bin (1.5 MB)
-```
-</details>
-
-<br/>
-
-<!-- ==================== STEP 4 ==================== -->
-### 🏋️ Step 4 — Train the Model
-
-<table><tr><td>
-
-**What it does:** Trains the transformer model using AdamW optimizer, cosine LR decay, gradient clipping, and mixed precision.
-
-**Command:**
-```bash
 python training/train.py --config configs/train_config.yaml
+python inference/generate.py --prompt "The future of AI is"
 ```
-
-**Configuration** (`configs/train_config.yaml`):
-```yaml
-model:
-  vocab_size: 8000        # Must match tokenizer
-  d_model: 128            # Embedding dimension
-  n_layers: 4             # Transformer layers
-  n_heads: 4              # Attention heads
-  max_seq_len: 128        # Context window
-
-training:
-  batch_size: 8
-  max_iters: 500          # Training steps
-  lr: 0.001               # Peak learning rate
-  warmup_iters: 50        # LR warmup period
-  eval_interval: 100      # Evaluate every N steps
-  checkpoint_dir: "checkpoints"
-
-data:
-  data_dir: "data/processed"
-```
-
-> 💡 **Tip:** For production on GPU, increase `d_model: 768`, `n_layers: 12`, `vocab_size: 50000`, and `max_iters: 50000+`
-
-</td></tr></table>
-
-<details>
-<summary>📋 <b>Click to see: Expected training output</b></summary>
-
-```
-Using device: cpu, dtype: float16
-Loaded 73,731,350 tokens from data/processed/train.bin
-Initializing model...
-Model parameters: 2.11 M
-
-step 0:   train loss 9.0148, val loss 8.9822   ← random weights
-iter 10:  loss 8.7215, lr 2.000e-04
-iter 50:  loss 7.6243, lr 6.000e-04             ← learning!
-step 100: train loss 6.8694, val loss 6.8527
-step 200: train loss 6.6183, val loss 6.5813
-step 300: train loss 6.3728, val loss 6.3337
-step 400: train loss 6.2461, val loss 6.2844
-step 499: train loss 6.1760, val loss 6.1997    ← converging ✅
-saving checkpoint to checkpoints
-```
-</details>
-
-<br/>
-
-<!-- ==================== STEP 5 ==================== -->
-### 🧪 Step 5 — Run Inference
-
-<table><tr><td>
-
-**What it does:** Loads the trained model and generates text from a prompt using top-k sampling.
-
-**Command:**
-```bash
-python inference/generate.py \
-    --prompt "The history of" \
-    --checkpoint checkpoints/ckpt.pt \
-    --tokenizer tokenizer/tokenizer.json \
-    --max_new_tokens 80 \
-    --temperature 0.8 \
-    --top_k 40
-```
-
-**Options:**
-
-| Flag | Default | Description |
-|------|---------|-------------|
-| `--prompt` | *(required)* | Input text to complete |
-| `--checkpoint` | `checkpoints/ckpt.pt` | Trained model file |
-| `--tokenizer` | `tokenizer/tokenizer.json` | Tokenizer file |
-| `--max_new_tokens` | `100` | Max tokens to generate |
-| `--temperature` | `0.8` | Creativity (higher = wilder) |
-| `--top_k` | `200` | Token pool size |
-
-</td></tr></table>
-
-<details>
-<summary>📋 <b>Click to see: Example output</b></summary>
-
-```
-Prompt: "The history of"
---------------------------------------------------
-Output: SG @-@ season , the two of the Ure 's CP. The series
-        of the next 54th century , and Cangan .
---------------------------------------------------
-Tokens Used: {'prompt_tokens': 5, 'completion_tokens': 50, 'total_tokens': 55}
-```
-
-> ⚠️ Text quality is rough with a tiny CPU model — this is expected. On GPUs with 120M params, results improve dramatically.
-
-</details>
-
-<br/>
-
-<!-- ==================== STEP 6 ==================== -->
-### 🌐 Step 6 — Start the API Server
-
-<table><tr><td>
-
-**What it does:** Deploys your trained model behind a FastAPI server with Swagger docs.
-
-**Command:**
-```bash
-python api/app.py \
-    --checkpoint checkpoints/ckpt.pt \
-    --tokenizer tokenizer/tokenizer.json \
-    --port 8000
-```
-
-**Options:**
-
-| Flag | Default | Description |
-|------|---------|-------------|
-| `--host` | `0.0.0.0` | Bind address |
-| `--port` | `8000` | Port number |
-| `--checkpoint` | `checkpoints/ckpt.pt` | Model file |
-| `--tokenizer` | `tokenizer/tokenizer.json` | Tokenizer file |
-
-</td></tr></table>
-
-<br/>
-
-#### 📚 Interactive API Documentation
-
-Once the server is running, open these URLs in your browser:
-
-<div align="center">
-
-| 🔗 URL | Description |
-|:------:|-------------|
-| **http://127.0.0.1:8000/docs** | 🟢 **Swagger UI** — Interactive API explorer with "Try it out" |
-| **http://127.0.0.1:8000/redoc** | 📘 **ReDoc** — Beautiful alternative documentation |
-
-</div>
-
-#### 📮 Test with Postman
-
-Copy this into **Postman → Import → Raw Text**:
-
-```bash
-curl --location 'http://127.0.0.1:8000/generate' \
---header 'Content-Type: application/json' \
---data '{"prompt": "The history of science", "max_tokens": 60, "temperature": 0.8, "top_k": 40}'
-```
-
-#### 📡 Endpoint: `POST /generate`
-
-<table>
-<tr>
-<td width="50%">
-
-**Request:**
-```json
-{
-    "prompt": "The history of science",
-    "max_tokens": 60,
-    "temperature": 0.8,
-    "top_k": 40
-}
-```
-
-</td>
-<td width="50%">
-
-**Response:**
-```json
-{
-    "generated_text": "The most of his first...",
-    "usage": {
-        "prompt_tokens": 6,
-        "completion_tokens": 60,
-        "total_tokens": 66
-    },
-    "latency_ms": 293.56
-}
-```
-
-</td>
-</tr>
-</table>
-
-<details>
-<summary>📐 <b>Click to expand: Full API Schema</b></summary>
-
-**Request fields:**
-
-| Field | Type | Default | Range | Description |
-|-------|------|---------|-------|-------------|
-| `prompt` | `string` | *(required)* | — | Input text |
-| `max_tokens` | `int` | 100 | 1–512 | Max generation length |
-| `temperature` | `float` | 0.7 | 0.0–2.0 | Randomness |
-| `top_k` | `int` | 50 | ≥ 0 | Token pool filter |
-
-**Response fields:**
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `generated_text` | `string` | Model's continuation |
-| `usage.prompt_tokens` | `int` | Input token count |
-| `usage.completion_tokens` | `int` | Generated token count |
-| `usage.total_tokens` | `int` | Sum |
-| `latency_ms` | `float` | Processing time (ms) |
-
-</details>
-
-<br/>
-
-<!-- Animated Divider -->
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
-
-<br/>
-
-## 📈 Training Results
-
-<div align="center">
-
-### 🏆 WikiText-103 Test Run (283 MB Corpus)
-
-</div>
-
-| Metric | Value |
-|--------|-------|
-| 📊 **Corpus Size** | 283.2 MB (424,310 clean lines) |
-| 🔤 **Tokenizer** | BPE, 8,000 vocab |
-| 🔢 **Total Tokens** | 74,476,112 (74.5M) |
-| 🧠 **Model** | 4 layers, 128 dim, 4 heads (~2.1M params) |
-| ⏱️ **Training** | 500 iterations on CPU |
-| 📉 **Final Train Loss** | 6.18 |
-| 📉 **Final Val Loss** | 6.20 |
-
-```
-📉 Training Loss Curve
-
-  9.0 ┤●
-      │ ╲
-  8.5 ┤  ╲
-      │   ╲
-  8.0 ┤    ╲
-      │     ╲
-  7.5 ┤      ╲
-      │       ╲
-  7.0 ┤        ╲
-      │         ╲──╲
-  6.5 ┤              ╲───╲
-      │                   ╲───╲
-  6.0 ┤                        ╲────── 6.18 ✅
-      └────────────────────────────────────
-      0    100   200   300   400   500
-                  iterations →
-```
-
-<br/>
-
-<!-- Animated Divider -->
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
-
-<br/>
-
-## 💾 Using the Checkpoint (.pt) File
-
-<details>
-<summary>📦 <b>Click to expand: What's inside a checkpoint</b></summary>
-
-| Key | Type | Contents |
-|-----|------|----------|
-| `checkpoint['model']` | `dict` | Model weights (state_dict) |
-| `checkpoint['optimizer']` | `dict` | Optimizer state |
-| `checkpoint['model_args']` | `dict` | Config: vocab_size, d_model, etc. |
-| `checkpoint['iter_num']` | `int` | Last training iteration |
-
-</details>
-
-**Load a trained model:**
-```python
-import torch
-from model.config import BUVNConfig
-from model.model import BUVNModel
-
-ckpt = torch.load('checkpoints/ckpt.pt', map_location='cpu')
-config = BUVNConfig.from_dict(ckpt['model_args'])
-model = BUVNModel(config)
-model.load_state_dict(ckpt['model'])
-model.eval()
-```
-
-**Resume training:**
-```python
-optimizer.load_state_dict(ckpt['optimizer'])
-start_iter = ckpt['iter_num']
-```
-
-<br/>
-
-<!-- Animated Divider -->
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
 <br/>
 
@@ -800,58 +765,25 @@ start_iter = ckpt['iter_num']
 
 <div align="center">
 
-| | Setup | Hardware | Use Case |
-|:-:|-------|----------|----------|
-| 🟢 | **CPU** | Any CPU, 8 GB RAM | Testing & validation |
-| 🟡 | **Single GPU** | RTX 3080/4080/T4 (16 GB) | Small training runs |
-| 🔵 | **Cloud GPU** | Azure NC A100 v4 (40–80 GB) | Full 120M model |
-| 🟣 | **Multi-GPU** | 4× A100 with DDP | Production scale |
+| Model | Minimum | Recommended | Cloud Option |
+|:---:|---------|-------------|-------------|
+| 🧠 **BUVN** (test) | Any CPU, 8 GB RAM | GPU, 16 GB | — |
+| 🧠 **BUVN** (prod) | 1× A100 40 GB | 4× A100 80 GB | Azure NC A100 v4 |
+| 💻 **SRVN** | 1× A100 40 GB | 2× A100 80 GB | Azure NC A100 v4 |
+| 📈 **MNI** | 1× A100 40 GB | 2× A100 80 GB | Azure NC A100 v4 |
 
 </div>
 
-> 💰 **Cost estimate:** 1× A100 on Azure (~$3–4/hr) × ~25 hours = **< $150** to train the full 120M model.
-
 <br/>
 
-## 💰 Token Pricing Concept
+## ⚠️ Disclaimers
 
-Every API response includes a `usage` object — exactly like OpenAI/Claude APIs:
-
-```json
-"usage": {
-    "prompt_tokens": 6,       // ← what you sent
-    "completion_tokens": 60,  // ← what was generated  
-    "total_tokens": 66        // ← billable count
-}
-```
-
-Plug into Stripe or any billing system for per-token pricing.
-
-<br/>
-
-## ⚠️ Limitations
-
-| ⚠️ Limitation | 💬 Explanation |
+| ⚠️ | Disclaimer |
 |:---:|---|
-| Not instruction-tuned | Predicts next tokens, won't "answer" questions |
-| Hallucinations | Small models fabricate facts frequently |
-| 128-token context | Limited window for CPU testing (512 in prod) |
-| English only | WikiText-103 is English-only |
-| Rough quality | Tiny model + limited iters = incoherent output |
-
-<br/>
-
-## 🔮 Future Roadmap
-
-- [ ] 🎯 Scale to **120M parameters** on Azure GPUs
-- [ ] 📚 Switch to **C4 dataset** (5B+ tokens)
-- [ ] 💬 **Supervised Fine-Tuning** on prompt/response pairs
-- [ ] 🧭 **RLHF / DPO** alignment
-- [ ] ⚡ **Flash Attention 2** kernels
-- [ ] 🖥️ **Multi-GPU DDP** distributed training
-- [ ] 📏 **Longer context** (2048+ tokens)
-- [ ] 📦 **INT8/INT4 Quantization** for faster inference
-- [ ] 🔁 **Continuous pre-training** on domain-specific data
+| 🧠 | BUVN is a research foundation model — not instruction-tuned, may generate incoherent or incorrect text |
+| 💻 | SRVN (when released) is a coding assistant — always review generated code before using in production |
+| 📈 | MNI (when released) is **not financial advice** — it is a research/analysis tool; always consult qualified professionals for investment decisions |
+| 🔒 | No models in the Beuvian ecosystem should be used for generating harmful, deceptive, or manipulative content |
 
 <br/>
 
@@ -863,14 +795,14 @@ Plug into Stripe or any billing system for per-token pricing.
 <div align="center">
 
 <!-- Animated Footer -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=120&section=footer&animation=twinkling" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2,6,11,20,30&height=120&section=footer&animation=twinkling" width="100%"/>
 
 **Built with ❤️ by Bhuvan**
 
-*BUVN-1.1 — Your first step toward building AI from scratch.*
+*Beuvian — One foundation. Three intelligences. Infinite possibilities.*
 
 <br/>
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=14&pause=2000&color=58A6FF&center=true&vCenter=true&width=500&lines=Clone+%E2%86%92+Train+%E2%86%92+Inference+%E2%86%92+Deploy+%E2%86%92+Repeat+%F0%9F%94%81" alt="footer" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=14&pause=2000&color=58A6FF&center=true&vCenter=true&width=600&lines=🧠+BUVN+→+💻+SRVN+→+📈+MNI+→+🌐+Beuvian+Ecosystem+🔁" alt="footer" />
 
 </div>

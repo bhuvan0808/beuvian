@@ -50,7 +50,7 @@ def is_valid_line(text: str, min_length: int) -> bool:
 # ---------------------------------------------------------------------------
 
 def build_corpus(
-    output_path: str = "BUVN-1.1/data/processed/corpus.txt",
+    output_path: str = "data/processed/corpus.txt",
     max_size_mb: float = 150.0,
     min_length: int = 100,
 ):
@@ -128,7 +128,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--output",
         type=str,
-        default="BUVN-1.1/data/processed/corpus.txt",
+        default="data/processed/corpus.txt",
         help="Path to the output corpus file.",
     )
     parser.add_argument(

@@ -57,8 +57,8 @@ def train_tokenizer(corpus_path: str, output_path: str, vocab_size: int = 4000):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Train a BPE tokenizer")
-    parser.add_argument("--corpus", type=str, default="BUVN-1.1/data/processed/corpus.txt")
-    parser.add_argument("--output", type=str, default="BUVN-1.1/tokenizer/tokenizer.json")
+    parser.add_argument("--corpus", type=str, default="data/processed/corpus.txt")
+    parser.add_argument("--output", type=str, default="tokenizer/tokenizer.json")
     parser.add_argument("--vocab_size", type=int, default=4000)
     args = parser.parse_args()
 

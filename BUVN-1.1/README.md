@@ -86,23 +86,25 @@ It covers the entire ML pipeline — from downloading raw text from the internet
 
 ```mermaid
 graph LR
-    A[📚 Raw Text Data] -->|Pre-training| B[🧠 Foundation Model]
-    B -->|Fine-tuning| C[💬 Chatbot]
-    B -->|Fine-tuning| D[📝 Summarizer]
-    B -->|Fine-tuning| E[💻 Code Assistant]
+    A[📚 Raw Text Data] -->|Pre-training| B[🧠 BUVN<br/>Foundation Model]
+    B -->|Fine-tuning on Code| C[💻 SRVN<br/>Coding Agent]
+    B -->|Training on Market Data| D[📈 MNI<br/>Finance Model]
+    B -->|Fine-tuning| E[💬 Chatbot]
     B -->|RLHF| F[🤖 AI Assistant]
-    
+
     style A fill:#1a1a2e,stroke:#16c79a,color:#fff
-    style B fill:#1a1a2e,stroke:#58a6ff,color:#fff
-    style C fill:#1a1a2e,stroke:#bc6ff1,color:#fff
-    style D fill:#1a1a2e,stroke:#bc6ff1,color:#fff
+    style B fill:#1a1a2e,stroke:#58a6ff,color:#fff,stroke-width:3px
+    style C fill:#1a1a2e,stroke:#f39c12,color:#fff,stroke-width:2px
+    style D fill:#1a1a2e,stroke:#bc6ff1,color:#fff,stroke-width:2px
     style E fill:#1a1a2e,stroke:#bc6ff1,color:#fff
     style F fill:#1a1a2e,stroke:#f39c12,color:#fff
 ```
 
 </div>
 
-A **foundation model** is a neural network trained on massive unlabeled text. BUVN-1.1 implements the **pre-training** step — the foundation upon which chatbots, code assistants, and AI agents are built.
+A **foundation model** is a neural network trained on massive unlabeled text. BUVN-1.1 implements the **pre-training** step — the foundation upon which the entire **Beuvian ecosystem** is built. BUVN's trained weights are inherited by **SRVN** (coding agent) and **MNI** (finance model), giving them a massive head start on understanding language before they specialize.
+
+> 📘 **See the full ecosystem overview:** [Beuvian README](../README.md)
 
 <br/>
 
@@ -843,7 +845,9 @@ Plug into Stripe or any billing system for per-token pricing.
 
 ## 🔮 Future Roadmap
 
-- [ ] 🎯 Scale to **120M parameters** on Azure GPUs
+### 🧠 BUVN — Foundation Model Evolution
+
+- [ ] 🎯 Scale to **120M parameters** on Azure A100 GPUs
 - [ ] 📚 Switch to **C4 dataset** (5B+ tokens)
 - [ ] 💬 **Supervised Fine-Tuning** on prompt/response pairs
 - [ ] 🧭 **RLHF / DPO** alignment
@@ -851,7 +855,42 @@ Plug into Stripe or any billing system for per-token pricing.
 - [ ] 🖥️ **Multi-GPU DDP** distributed training
 - [ ] 📏 **Longer context** (2048+ tokens)
 - [ ] 📦 **INT8/INT4 Quantization** for faster inference
-- [ ] 🔁 **Continuous pre-training** on domain-specific data
+
+### 💻 SRVN — Coding Agent Model (Fine-tuned from BUVN)
+
+SRVN is the next evolution — a **coding agent** that inherits BUVN's language understanding and specializes in code generation, debugging, review, and autonomous agentic workflows.
+
+- [ ] 📦 Curate code training corpus (**The Stack v2**, GitHub, 500GB+)
+- [ ] 🔤 Extend tokenizer with **code-specific vocabulary** (64K tokens — indentation, brackets, operators)
+- [ ] 🔧 **Fine-tune BUVN checkpoint** on multi-language code data (Python, JS, Rust, Go, Java, C++)
+- [ ] 🧩 Implement **Fill-in-the-Middle (FIM)** training for code infilling
+- [ ] 📋 **Instruction-tune** on coding task datasets (CodeAlpaca, Code-Instruct)
+- [ ] 🤖 Build **agentic framework** — Plan → Code → Test → Debug → Iterate autonomously
+- [ ] 🧪 Benchmark on **HumanEval**, **MBPP**, **SWE-bench**
+- [ ] 🌐 Deploy as **coding assistant API** with tool-use capabilities
+
+### 📈 MNI — Finance Model (Trained on Market Data)
+
+MNI is the financial intelligence arm — trained on **stock market data, SEC filings, earnings calls, and financial news** to become a multi-modal financial reasoning engine.
+
+- [ ] 📊 Build financial data pipeline (**SEC EDGAR**, Yahoo Finance, news APIs, Alpha Vantage)
+- [ ] 🔢 Design **numeric-aware tokenization** for price, volume, and ratio data
+- [ ] 🏋️ **Domain pre-train** BUVN on financial corpus (10-K/Q filings, earnings transcripts, textbooks)
+- [ ] 📰 Train **sentiment analysis** on earnings calls, financial news, and social media
+- [ ] 📉 Build **market prediction head** (price direction + magnitude regression + classification)
+- [ ] 🧪 **Backtest** signal quality with walk-forward validation and out-of-sample testing
+- [ ] 🌐 Deploy as **financial analysis API** (sentiment scores, risk metrics, research summaries)
+- [ ] 📋 Build **dashboard** for real-time market intelligence and portfolio monitoring
+
+### 🌐 Beuvian Ecosystem Integration
+
+- [ ] 🔀 **Unified API gateway** — single endpoint routing to BUVN / SRVN / MNI
+- [ ] 🤝 **Cross-model orchestration** — SRVN writes quant strategies, MNI evaluates them
+- [ ] 📦 **HuggingFace Hub publication** for all model weights
+- [ ] 🎮 **Web playground** for interactive demos across all three models
+- [ ] 🔄 **Model versioning** and A/B testing infrastructure
+
+> 📘 **Full ecosystem details:** See the [Beuvian Ecosystem README](../README.md) for the complete vision, architecture, and technical deep dives on SRVN and MNI.
 
 <br/>
 
@@ -867,7 +906,7 @@ Plug into Stripe or any billing system for per-token pricing.
 
 **Built with ❤️ by Bhuvan**
 
-*BUVN-1.1 — Your first step toward building AI from scratch.*
+*BUVN-1.1 — The foundation of the [Beuvian Ecosystem](../README.md). One model to power them all.*
 
 <br/>
 

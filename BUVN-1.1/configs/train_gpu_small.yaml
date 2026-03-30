@@ -1,0 +1,29 @@
+# BUVN Option A: Quick GPU validation (~10M params, ~15-25 min on H100)
+model:
+  vocab_size: 8000
+  d_model: 384
+  n_layers: 6
+  n_heads: 6
+  max_seq_len: 512
+  dropout: 0.1
+  bias: false
+  gradient_checkpointing: false
+
+training:
+  batch_size: 32
+  gradient_accumulation_steps: 4    # effective batch = 128
+  max_iters: 5000
+  lr: 0.0006
+  min_lr: 0.00006
+  warmup_iters: 200
+  weight_decay: 0.1
+  beta1: 0.9
+  beta2: 0.95
+  grad_clip: 1.0
+  eval_interval: 250
+  eval_iters: 20
+  log_interval: 50
+  checkpoint_dir: "checkpoints"
+
+data:
+  data_dir: "data/processed"
